@@ -61,7 +61,7 @@ class User extends Authenticatable
 
             case 'update':
                 $client = $client->request('PATCH', "$url/$user->id", [
-                    'form_params' => $this->findUpdated($user)
+                    'json' => $this->findUpdated($user)
                 ]);
                 break;
 
@@ -69,7 +69,6 @@ class User extends Authenticatable
                 $client = $client->request('DELETE', $url.'/'.$user->id);
                 break;
         }
-        dd($client);
         return $client->getStatusCode() === 200;
     }
 
