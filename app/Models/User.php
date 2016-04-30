@@ -54,11 +54,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $onModifyEvents = [
-        'created',
-        'updated'
-    ];
-
     public Static function boot() {
         static::saving(function($user){
             $password = $user->password;
@@ -71,7 +66,7 @@ class User extends Authenticatable
             });
         });
 
-        foreach ($this->onModifyEvents as $event) {
+        foreach (['created', 'updated'] as $event) {
             static::$event(function($user) {
                 $this->updateAccounts($user);
             });
