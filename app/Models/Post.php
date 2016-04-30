@@ -41,7 +41,7 @@ class Post extends Model
         RecordsActivity,
         scopeRandom,
         scopePopular,
-        scopeInactive
+        scopeInactive,
         HasModerateTrait;
 
     /**
