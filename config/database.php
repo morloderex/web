@@ -66,6 +66,45 @@ return [
             'engine' => null,
         ],
 
+        'TrinityCore_auth' => [
+            'driver'    => 'mysql',
+            'host'      => env('TRINITYCORE_DB_HOST', 'localhost'),
+            'port'      => env('TRINITYCORE_DB_PORT', 3306),
+            'database'  => 'TrinityCore_auth',
+            'username'  => env('TRINITYCORE_DB_USERNAME', 'trinity'),
+            'password'  => env('TRINITYCORE_DB_PASSWORD', 'forge'),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => false,
+        ],
+
+        'TrinityCore_character' => [
+            'driver'    => 'mysql',
+            'host'      => env('TRINITYCORE_DB_HOST', 'localhost'),
+            'port'      => env('TRINITYCORE_DB_PORT', 3306),
+            'database'  => 'TrinityCore_character',
+            'username'  => env('TRINITYCORE_DB_USERNAME', 'forge'),
+            'password'  => env('TRINITYCORE_DB_PASSWORD', 'forge'),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => false,
+        ],
+
+        'TrinityCore_world' => [
+            'driver'    => 'mysql',
+            'host'      => env('TRINITYCORE_DB_HOST', 'localhost'),
+            'port'      => env('TRINITYCORE_DB_PORT', 3306),
+            'database'  => 'TrinityCore_world',
+            'username'  => env('TRINITYCORE_DB_USERNAME', 'forge'),
+            'password'  => env('TRINITYCORE_DB_PASSWORD', 'forge'),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => false,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', 'localhost'),
