@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Laracasts\Generators\GeneratorsServiceProvider;
+use Andynoelker\Laravel5ViewGenerator\ViewGeneratorServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if ($this->app->environment() == 'local') {
+            $this->app->register(GeneratorsServiceProvider::class);
+            $this->app->register(ViewGeneratorServiceProvider::class);
+        }
     }
 }

@@ -1,0 +1,155 @@
+<?php
+
+namespace App\Http\Controllers\Armory;
+
+use App\Http\Requests;
+use App\Models\TrinityCore\Account;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Http\Request;
+
+class CharacterController extends Controller
+{
+    protected $account;
+
+    public function __construct(Guard $guard) {
+        $this->middleware('auth');
+
+        $this->account = $guard->user->accounts;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $accounts = $this->account;
+
+        return view('characters.index', compact('accounts'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('armory.character.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $attributes = $request->except('_token');
+        $account = $this->findAccount($attributes);
+
+        return $account->characters()->save(new Character($attributes)); 
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  Character $character
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Character $character)
+    {
+        return view('armory.character.show', compact('character'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  Character $character
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Character $character)
+    {
+        return view('armory.character.edit', compact('character'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  Character $character
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Character $character)
+    {
+        $this->authorize('update', $character);
+
+        $character = $character->update($request->except('_token'));
+        $account = $this->findAccount($attributes);
+
+        $updated = $account->Characters()->save($character);
+
+        $redirect = redirect()->back();
+        return $updated ? $redirect->withSuccess('Character updated.') : $redirect->withErrors('Something went wrong..');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  Character $character
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Character $character)
+    {
+        $this->authorize('destroy', $character);
+
+        $deleted = $character->destroy();
+
+        $redirect = redirect()->back();
+        return $deleted ? $redirect->withSuccess('Character deleted.') : $redirect->withErrors('Something went wrong..');
+    }
+
+     public function addItem(Request $request)
+     {
+        $attributes = $request->except('_token');
+        $account = $this->findAccount($attributes);
+
+        if(in_array('character_guid', $attributes))
+        {
+            $character_guid = $attributes['character_guid'];
+            $character = $account->characters()->each(function($character) use($character_guid, $attributes) {
+                if($character->guid === $character_guid)
+                {
+                    return $character;
+                }
+            });
+        } else {
+            $character = $account->characters()->first();
+        }
+
+        $status = $character->save(new Item($attributes));
+
+        if($status)
+        {
+            Flash::success('Item added to Character.');
+        } else {
+            Flash::error('Something went wrong...');
+        }
+
+        return redirect()->back();
+    }
+
+    protected function findAccount(array $attributes) {
+        $account = $this->account;
+        if($account instanceof Collection)
+        {
+            $account = array_key_exists('accountID', $attributes) ? 
+                Account::find($attributes['accountID']) 
+                :
+                $account->first();
+        }
+        return $account;
+    }
+}

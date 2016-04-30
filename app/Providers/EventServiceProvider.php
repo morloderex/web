@@ -13,8 +13,26 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\SomeEvent' => [
-            'App\Listeners\EventListener',
+        'auth.login' => [
+            'App\Listeners\UserEventListener@signedIn',
+        ],
+        'auth.logout' => [
+            'App\Listeners\UserEventListener@signedOut',
+        ],
+        'App\Events\User\SignedUp' => [
+            'App\Listeners\UserEventListener@signedUp',
+        ],
+        'App\Events\User\Destroyed'  =>  [
+            'App\Listeners\UserEventListener@destroyed'
+        ],
+        'App\Events\Role\ChangedIPNotification'  =>  [
+            'App\Listeners\UserEventListener@ipChanged'
+        ],
+        'App\Events\Role\Granted'  =>  [
+            'App\Listeners\UserEventListener@promoted'
+        ],
+        'App\Events\Role\Revoked'  =>  [
+            'App\Listeners\UserEventListener@demoted'
         ],
     ];
 

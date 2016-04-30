@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use App\User;
+use Gate;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -31,13 +36,67 @@ class AuthController extends Controller
     protected $redirectTo = '/home';
 
     /**
+     * @var Illuminate\Auth\SessionGuard
+     */
+    protected $guard;
+
+    /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Guard $guard)
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware($this->guestMiddleware(), ['except' => 'logout', 'getRegister', 'postRegister']);
+        $this->guard = $guard;
+    }
+
+    /**
+     * Logs in using a random user
+     * @return RedirectResponse
+     * @throws notFoundHttpException
+     */
+    public function loginWithRandomUser() {
+        if (App::environment('local', 'staging', 'development')) {
+            $user = User::random();
+            if($user instanceof Authenticatable)
+                $this->guard->login($user);
+            
+            return redirect('/home');
+        } 
+        
+        abort(404);
+    }
+
+    /**
+     * @overwrites: Trait RegistesUsers
+     * 
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getRegister() {
+        $this->checkUserRegistration();
+        return $this->showRegistrationForm();
+    }
+
+    /**
+     * @Overwrites: Trait RegistersUsers.
+     * 
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postRegister(Request $request) {
+
+        $this->checkUserRegistration();
+        return $this->register($request);
+    }
+
+    protected function checkUserRegistration() {
+        if(Gate::denies('create'))
+            abort(403, 'User creation disabled.');
     }
 
     /**
@@ -51,7 +110,7 @@ class AuthController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'password' => 'required|min:6|confirmed',
         ]);
     }
 
@@ -64,9 +123,12 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            // Users created are by default not active
+            // eg. require email confirmation or Administrative intervention.
+            'active'    => False,
+            'name'      => $data['name'],
+            'email'     => $data['email'],
+            'password'  => $data['password'],
         ]);
     }
 }

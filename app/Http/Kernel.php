@@ -15,6 +15,7 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        \JacobBennett\Pjax\PjaxMiddleware::class
     ];
 
     /**
@@ -31,7 +32,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
         ],
 
-        'api' => [
+        'throttled' => [
             'throttle:60,1',
         ],
     ];
@@ -44,7 +45,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'api'  => \App\Http\Middleware\ApiMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
+        'can' => \Spatie\Authorize\Middleware\Authorize::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,

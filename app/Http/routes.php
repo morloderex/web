@@ -2,39 +2,36 @@
 
 /*
 |--------------------------------------------------------------------------
-| Routes File
+| Application Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you will register all of the routes in an application.
+| Here is where you can register all of the routes for an application.
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+  Route::get('/', 'WelcomeController@getIndex');
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| This route group applies the "web" middleware group to every route
-| it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
-|
-*/
+  Route::auth();
 
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
+  Route::get('/login/random', 'Auth\AuthController@loginWithRandomUser');
 
-    Route::group(['prefix' => 'home'], function (){
-        Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-        Route::get('profile', ['as' => 'home.profile', 'uses' => 'HomeController@profile']);
+  Route::get('/home', 'HomeController@index');
+
+  Route::resource('user', UserController::class);
+
+    Route::group(['prefix' => 'armory', 'namespace' => 'Armory'], function () {
+            Route::resource('item', ItemController::class);
+            Route::resource('account', AccountController::class);
+            Route::resource('character', CharacterController::class);
+            Route::post('character/addItem', 'CharacterController@addItem');
     });
+  
+  Route::resource('post', PostController::class);
+  Route::resource('photo', PhotoController::class);
+  Route::resource('category', CategoryController::class);
 
-    Route::get('api', function (){
-        return redirect('http://api.mwow.dk');
-    });
-});
+  Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function() {
+    
+  });
