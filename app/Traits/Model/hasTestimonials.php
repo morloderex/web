@@ -3,7 +3,7 @@
 namespace App\Traits\Model;
 
 
-use App\Testimonial;
+use App\Models\Testimonial;
 
 trait hasTestimonials
 {

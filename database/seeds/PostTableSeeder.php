@@ -3,14 +3,14 @@
 use Illuminate\Database\Seeder;
 
 use App\Traits\Seeder\Relatable,
-    App\Post,
-    App\Category,
-    App\Information,
-    App\Photo,
-    App\User,
-    App\Tag,
-    App\Comment,
-    App\Testimonial;
+    App\Models\Post,
+    App\Models\Category,
+    App\Models\Information,
+    App\Models\Photo,
+    App\Models\User,
+    App\Models\Tag,
+    App\Models\Comment,
+    App\Models\Testimonial;
 
 class PostTableSeeder extends Seeder
 {

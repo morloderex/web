@@ -4,10 +4,12 @@ namespace App\Traits\Seeder;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\Relation,
-    lluminate\Database\Eloquent\Relations\hasMany,
+    Illuminate\Database\Eloquent\Relations\HasMany,
     Illuminate\Database\Eloquent\Relations\BelongsTo,
     Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Support\Collection;
 
 
 trait Relatable {
@@ -23,7 +25,7 @@ trait Relatable {
 
     // map each model of the factory with relationship seeds
     $factory->each(function($model){
-      return $this->buildRelations($model);
+      $this->buildRelations($model);
     });
   }
 
@@ -65,67 +67,79 @@ trait Relatable {
       }
 
       $relation = $with->$relationMethod();
+      if(is_string($related))
+      {
+        $related = $this->makeFactory($related, $times)->create();
+      }
 
-      switch ($relation) {
-        case $relation instanceof BelongsTo:
-          $this->handleBelongsTo($relation, $with);
-          break;
-
-        case $relation instanceof BelongsToMany:
-          $this->handleManyRelations($relation, $with, True);
-          break;
-
-        case $relation instanceof hasMany OR $relation instanceof MorphMany:
-          $this->handleManyRelations($relation, $with);
-          break;
-
-
-        default:
-            if(!$related instanceof Model)
-            {
-              if(is_string($related) OR empty($related->getAttributes()))
-              {
-                $related = $this->makeFactory($related, 1)->create();
-              } else {
-                $type = gettype($related);
-                throw new \Exception("Excpected String or Model, got $type.");
-              }
-            }
-
-            $relation->save($related);
-            break;
+      if($related instanceof Collection)
+      {
+        // Yes, i know it's not a registered word.
+        $related->each(function($relatee) use($relation) {
+          $this->handleRelation($relation, $relatee);
+        });
+      } else {
+        $this->handleRelation($relation, $related);
       }
     }
   }
 
-  protected function handleManyRelations(Relation $relations, Model $with, bool $inverse = False) {
-    foreach ($relations as $relation) {
-      if($inverse === False)
+  protected function handleRelation(Relation $relation, Model $related)
+  {
+    switch ($relation) {
+      case $relation instanceof BelongsTo:
+        $this->handleBelongsTo($relation, $related);
+        break;
+
+      case $relation instanceof BelongsToMany:
+        $this->handleManyRelations($relation, $related, True);
+        break;
+
+      case $relation instanceof HasMany OR $relation instanceof MorphMany:
+        $this->handleManyRelations($relation, $related);
+        break;
+
+
+      default:
+        if(!$related instanceof Model)
+        {
+          $type = gettype($related);
+          throw new \Exception("Excpected String or Model, got $type.");
+        }
+        break;
+    }
+  }
+
+  protected function handleManyRelations(Relation $relation, Model $with, bool $inverse = False) {
+      if($inverse === True)
       {
         // get the relationMethod for the parent model.
-        $relatedRelationMethod = $this->reflectLikelyRelationName($relation, $with);
+        $relatedRelationMethod = $this->reflectLikelyRelationName($relation->getParent(), $with);
 
-        // attach the related model to the parent model.
-        $with->$relationMethod()->save($relation);
+        // attach the parent model to the related model.
+        $with->$relatedRelationMethod()->save($relation->getParent());
       } else {
         // if a belongsTo* relationship is returned,
         // inverse relationship and map this model to that relation
         $this->handleBelongsTo($relation, $with);
       }
-    }
   }
 
   protected function handleBelongsTo(Relation $relation, Model $with) {
-    // get related model,
-    // if not, create one.
-    $relation = $relation->getRelated();
-    $relation = !empty($relation->getAttributes()) ? $relation : $this->makeFactory(get_class($relation), 1)->create();
 
-    // get the related models relation method for the parent model.
-    $relatedRelationMethod = $this->reflectLikelyRelationName($with, $relation);
+    // If for some reason save is not available on given relation,
+    // this is typically seen when a hasMany -> belongsTo relation is attempt called in reverse..
+    // ie. a User can save a Post BUT a post CANNOT save a User.
 
-    // attach the parent model to the related model
-    $relation->$relatedRelationMethod()->save($with);
+    // just dump and skip for now.
+    if( ! method_exists($relation, 'save'))
+    {
+      dump("cannot save [ " . get_class($relation) . " ] between { ". get_class($relation->getParent()) . " } and { ". get_class($with) . " } ");
+      return;
+    }
+
+    // attach the related model to the parent model
+    $relation->save($with);
   }
 
   protected function reflectLikelyRelationName($relation, $model) {

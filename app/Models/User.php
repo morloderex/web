@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use App\Models\TrinityCore\Account;
 use App\Scopes\Traits\scopeRandom;
 
 use App\Traits\Model\hasPhotos,
     App\Traits\Model\Locatable,
     App\Traits\Model\hasInformation;
 
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use Mpociot\Teamwork\Traits\UserHasTeams;
@@ -24,7 +27,7 @@ class User extends Authenticatable
         scopeRandom,
         Locatable,
         hasPhotos;
-
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -42,9 +45,7 @@ class User extends Authenticatable
         'teams'     =>  'collection',
         'invites'   =>  'collection'
     ];
-
-    private $rawPassword;
-
+    
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -55,8 +56,10 @@ class User extends Authenticatable
     ];
 
     public Static function boot() {
-        static::saving(function($user){
+        static::saving(function($user) {
             $password = $user->password;
+            $user->fillAccounts($user);
+            
             $user->password = Hash::make($password);
         });
 
@@ -66,14 +69,17 @@ class User extends Authenticatable
             });
         });
 
-        foreach (['created', 'updated'] as $event) {
-            static::$event(function($user) {
-                $this->updateAccounts($user);
-            });
-        }
+        static::updating(function($user) {
+            $user->fillAccounts($user);
+        });
+
+        static::creating(function($user){
+            $user->mapMyAccounts();
+            $user->fillAccounts($user);
+        });
     }
 
-    protected function updateAccounts(User $user) {
+    protected function fillAccounts(User $user) {
         return $user->Accounts()->each(function($account) use($user){
                 $account->username = $user->name;
                 $account->email    = $user->email;
@@ -83,12 +89,21 @@ class User extends Authenticatable
         });
     }
 
-    public function posts()
+    public function posts() : HasMany
     {
         return $this->hasMany(Post::class);
     }
 
-    public function Accounts() {
-        return $this->belongsToMany(Account::class);
+    protected function mapMyAccounts()
+    {
+        $accounts = Account::whereEmail($this->email)->get();
+        $accounts->each(function($account){
+            $this->Accounts()->save($account);
+        });
+    }
+
+    public function Accounts() : BelongsToMany
+    {
+        return $this->belongsToMany(Account::class, 'TrinityCore_web.accounts_user');
     }
 }

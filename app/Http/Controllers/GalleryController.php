@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Photo;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
 
-class PhotoController extends Controller
+class GalleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,8 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        return Photo::count();
+        $galleries = Gallery::all();
+        return view('gallery.index', compact('galleries'));
     }
 
     /**
@@ -27,7 +28,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        return view('photos.upload');
+        return view('gallery.create');
     }
 
     /**
@@ -40,13 +41,18 @@ class PhotoController extends Controller
     {
         $method = __FUNCTION__;
 
-        $photo = new Photo($request->all());
+        $gallery = new Gallery($request->all());
+        $this->authorize($method, $gallery);
 
-        $this->authorize($method, $photo);
+        $saved = $gallery->save();
 
-        $saved = $photo->save();
+        if( !  $saved )
+        {
+            $this->flashErrorAndRedirectBack($method);
+        }
 
-        $this->handleStatus($saved, $method);
+        Flash::success('Gallery created!');
+        return redirect()->route('gallery.edit', $gallery->id);
     }
 
     /**
@@ -55,9 +61,13 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Photo $photo)
+    public function show(Gallery $gallery)
     {
-        return view('photos.display', compact('photo'));
+        $gallery = $this->getPopulatedGallery($gallery);
+
+        $photos = $gallery->photos()->paginate(15);
+        
+        return view('gallery.show', compact('gallery', 'photos'));
     }
 
     /**
@@ -66,9 +76,11 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Photo $photo)
+    public function edit(Gallery $gallery)
     {
-        return view('photos.edit', compact('photo'));
+        $gallery = $this->getPopulatedGallery($gallery);
+
+        return view('gallery.edit', compact('gallery'));
     }
 
     /**
@@ -78,15 +90,21 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Photo $photo)
+    public function update(Request $request, Gallery $gallery)
     {
         $method = __FUNCTION__;
 
-        $this->authorize($method, $photo);
+        $this->authorize($method, $gallery);
 
-        $updated = $photo->update($request->all());
+        $updated = $gallery->update($request->all());
 
-        $this->handleStatus($updated, $method);
+        if( ! $updated )
+        {
+            $this->flashErrorAndRedirectBack($method);
+        }
+
+        Flash::success('Gallery updated!');
+        return redirect()->route('gallery.show', $gallery->id);
     }
 
     /**
@@ -95,28 +113,27 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Photo $photo)
+    public function destroy(Gallery $gallery)
     {
         $method = __FUNCTION__;
+        
+        $this->authorize($method, $gallery);
 
-        $this->authorize($method, $photo);
+        $destroyed = $gallery->delete();
 
-        $destroyed = $photo->delete();
-
-        $this->handleStatus($destroyed, $method);
-    }
-
-    protected function handleStatus(bool $status, string $method)
-    {
-        if( $status === False )
+        if( ! $destroyed )
         {
             $this->flashErrorAndRedirectBack($method);
         }
 
-        Flash::success('Photo' . str_plural($method) . 'successfully.');
+        Flash::success('gallery destroyed.');
         return redirect()->route('gallery.index');
     }
 
+    protected function getPopulatedGallery(Gallery $gallery)
+    {
+        return $gallery->load('Photos');
+    }
 
     protected function flashErrorAndRedirectBack(string $method)
     {

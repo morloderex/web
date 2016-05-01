@@ -7,7 +7,7 @@
 namespace App\Traits\Model;
 
 
-use App\Libraries\Image\Handler;
+use App\Libraries\Image\Handler as ImageHandler;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 use Intervention\Image\CachedImage,

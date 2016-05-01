@@ -1,0 +1,1 @@
+@include('partials.photo.render.image', $photo)

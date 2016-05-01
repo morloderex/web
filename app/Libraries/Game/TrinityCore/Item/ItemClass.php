@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Libraries\Game\TrinityCore\Item;
+use App\Models\TrinityCore\Item\Item;
 
 /**
 * Item classes and subclasses
@@ -44,6 +45,11 @@ class ItemClass
 
     	return 'unknown';
     }
+
+	public function __toString() : string
+	{
+		return $this->getClass();
+	}
 
     public function getSubclass() : string
     {

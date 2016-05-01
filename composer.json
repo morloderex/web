@@ -26,7 +26,8 @@
         "maknz/slack": "^1.7",
         "olssonm/l5-zxcvbn": "^1.0",
         "vinkla/pusher": "^2.2",
-        "cmgmyr/messenger": "^2.10"
+        "cmgmyr/messenger": "^2.10",
+        "laracasts/flash": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -63,6 +63,9 @@ class Handler {
 
             $target = $this->getTarget();
 
+            $this->createDirectoryIfNotExists($imagesDirectory);
+            $img->save("$imagesDirectory/$target");
+
             if($this->model->isThumbnail)
             {
                 $thumbsDirectory = "$imagesDirectory/thumbnails";
@@ -71,8 +74,6 @@ class Handler {
                 $img->resize(300,200)->save("$thumbsDirectory/$target");
             }
 
-            $this->createDirectoryIfNotExists($imagesDirectory);
-            return $img->save("$imagesDirectory/$target");
         },$this->lifetime, $returnImageObject = True);
 
         $this->setImage($image);
@@ -118,9 +119,9 @@ class Handler {
 
     /**
      * @param Model $model
-     * @return ImageHandler
+     * @return self
      */
-    public function setModel(Model $model) : ImageHandler
+    public function setModel(Model $model) : self
     {
         $this->model = $model;
         return $this;
@@ -139,9 +140,9 @@ class Handler {
 
     /**
      * @param mixed $image
-     * @return ImageHandler
+     * @return self
      */
-    public function setImage(Image $image) : ImageHandler
+    public function setImage(Image $image) : self
     {
         $this->image = $image;
         return $this;

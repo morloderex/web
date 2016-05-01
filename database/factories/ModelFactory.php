@@ -2,17 +2,19 @@
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Hash;
-use App\User,
-	App\Category,
-	App\Post,
-	App\Comment,
-	App\Location,
-	App\Photo,
-	App\Style,
-	App\Tag,
-	App\Taggable,
-	App\Testimonial,
-	App\Information;
+use Illuminate\Database\Eloquent\Model,
+    App\Models\User,
+	App\Models\Category,
+	App\Models\Post,
+	App\Models\Comment,
+	App\Models\Location,
+	App\Models\Photo,
+	App\Models\Tag,
+	App\Models\Taggable,
+	App\Models\Testimonial,
+	App\Models\Information,
+    App\Models\Gallery;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -36,8 +38,9 @@ $factory->define(User::class, function (Faker\Generator $faker) {
 
 $factory->define(Category::class, function (Faker\Generator $faker) {
 	return [
-		'visits'	=>	$faker->numberBetween(5,20),
-		'name'		=>	$faker->title,
+        'user_id'       =>  factory(User::class)->create()->id,
+		'visits'	    =>	$faker->numberBetween(5,20),
+		'name'		    =>	$faker->title,
 		'description'	=>	$faker->catchPhrase,
 	];
 });
@@ -75,9 +78,11 @@ $factory->define(Post::class, function(Faker\Generator $faker){
 });
 
 $factory->define(Comment::class, function(Faker\Generator $faker){
+    $user = factory(User::class)->create();
     return [
-      'title'     		=>  $faker->title,
-      'body'  				=>  $faker->text
+        'user_id'               =>  $user->id,
+        'title'     		    =>  $faker->title,
+        'body'  				=>  $faker->text
     ];
 });
 
@@ -114,26 +119,23 @@ $factory->define(Testimonial::class, function(Faker\Generator $faker){
     ];
 });
 
-$factory->define(Style::class, function(Faker\Generator $faker){
+$factory->define(Tag::class, function(Faker\Generator $faker){
     return [
-			'name'				=> $faker->name,
-			'description'	=> $faker->catchPhrase,
-			'similar_to'	=> $faker->name,
-			'reference'		=> $faker->url
+				'tag'			=>	$faker->bs
     ];
 });
 
-$factory->define(Tag::class, function(Faker\Generator $faker, Model $taggable){
+$factory->define(Taggable::class, function(Faker\Generator $faker){
+    $tag = factory(Tag::class)->create();
     return [
-				'tag'						=>	$faker->bs,
-        'taggable_id'		=>	$taggable->id,
-				'taggable_type'	=>	get_class($taggable)
-    ];
-});
-
-$factory->define(Taggable::class, function(Faker\Generator $faker, Tag $tag){
-    return [
-				'tag_id'	=>	$tag->id,
+        'tag_id'	=>	$tag->id,
         'tag' 		=> 	$tag->tag ?: $faker->bs
+    ];
+});
+
+$factory->define(Gallery::class, function(Faker\Generator $faker){
+    return [
+        'name'          =>  $faker->bs,
+        'description'   =>  $faker->catchPhrase
     ];
 });

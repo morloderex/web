@@ -15,7 +15,7 @@ class TicketController extends Controller
     public function __construct(Guard $guard) {
         $this->middleware('auth');
         
-        $this->account = $guard->user->accounts;
+        $this->account = $guard->user()->accounts;
     }
 
     /**

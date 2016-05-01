@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Models\Game\Item;
+namespace App\Models\TrinityCore;
 
+use App\Libraries\Game\TrinityCore\Item\ItemClass;
 use Illuminate\Database\Eloquent\Model;
 use Watson\Rememberable\Rememberable;
 
-use App\Traits\Models\hasPhotos,
-	App\Traits\Models\Forgetable;
+use App\Traits\Model\hasPhotos,
+	App\Traits\Model\Forgetable;
 
 class Item extends Model
 {
@@ -44,6 +45,6 @@ class Item extends Model
      */
     public function getClass() : string 
     {
-    	return (new ItemClass($this))->getClass();
+    	return new ItemClass($this);
     }
 }

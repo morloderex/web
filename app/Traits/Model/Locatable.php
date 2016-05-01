@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Traits\Model;
-use App\Location;
+use App\Models\Location;
 
 trait Locatable {
   public function location() {

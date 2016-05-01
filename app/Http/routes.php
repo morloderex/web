@@ -31,6 +31,7 @@
   Route::resource('post', PostController::class);
   Route::resource('photo', PhotoController::class);
   Route::resource('category', CategoryController::class);
+  Route::resource('gallery', GalleryController::class);
 
   Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function() {
     

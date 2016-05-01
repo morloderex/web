@@ -160,12 +160,11 @@ return [
         /**
          * 3rd party
          **/
-        Intervention\Image\ImageServiceProvider::class,
-        Spatie\Permission\PermissionServiceProvider::class,
-        Spatie\Authorize\AuthorizeServiceProvider::class,
-        Mpociot\Teamwork\TeamworkServiceProvider::class,
-       # Lookitsatravis\Listify\ListifyServiceProvider::class,
-       # Bosnadev\Repositories\Providers\RepositoryProvider::class,
+       Intervention\Image\ImageServiceProvider::class,
+       Spatie\Permission\PermissionServiceProvider::class,
+       Spatie\Authorize\AuthorizeServiceProvider::class,
+       Mpociot\Teamwork\TeamworkServiceProvider::class,
+       Laracasts\Flash\FlashServiceProvider::class,
        Riari\Forum\ForumServiceProvider::class,
        Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
        Torann\GeoIP\GeoIPServiceProvider::class,

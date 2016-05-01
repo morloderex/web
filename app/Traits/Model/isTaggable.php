@@ -3,7 +3,7 @@
 namespace App\Traits\Model;
 
 
-use App\Tag;
+use App\Models\Tag;
 
 trait isTaggable
 {

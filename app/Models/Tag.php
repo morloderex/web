@@ -19,9 +19,10 @@ class Tag extends Model
     ];
 
     public static function boot() {
-      static::created(function(Tag $tag){
-        $taggable = Taggable::whereTag($tag->tag) ?: new Taggable($tag->tag);
-        $tag->tags()->save($taggable);
+      static::creating(function(Tag $tag){
+            $taggable = Taggable::whereTag($tag->tag)->get() ?: new Taggable($tag->tag);
+            unset($tag->attributes['tag']);
+            $tag->Tags()->saveMany($taggable);
       });
     }
 

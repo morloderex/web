@@ -21,6 +21,8 @@ class Photo extends Model
         hasInformation,
         handlesImages;
 
+    protected $with = ['Information'];
+
     /**
      * @var bool
      */
@@ -31,8 +33,8 @@ class Photo extends Model
      */
     protected $fillable = [
     	'name',
-      'extension',
-      'description',
+        'extension',
+        'description',
     	'imageable_id',
     	'imageable_type'
     ];

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Armory;
 
-use App\Models\Character\Item;
+use App\Models\TrinityCore\Account;
+use App\Models\TrinityCore\Item;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Contracts\Auth\Guard;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Collection;
+use Laracasts\Flash\Flash;
 
 class ItemController extends Controller
 {
@@ -15,7 +18,10 @@ class ItemController extends Controller
     public function __construct(Guard $guard) {
         $this->middleware('auth');
 
-        $this->account = $guard->user->accounts;
+        $user = $guard->user();
+        
+        if($user)
+            $this->account = $user->accounts;
     }
 
     /**
@@ -114,7 +120,7 @@ class ItemController extends Controller
     {
         $this->authorize('destroy', $item);
 
-        $destroyed = $item->destroy();
+        $destroyed = $item->delete();
 
         if( ! $destroyed )
         {

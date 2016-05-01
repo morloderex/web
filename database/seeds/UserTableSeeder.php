@@ -1,7 +1,7 @@
 <?php
 
-use App\Information;
-use App\User;
+use App\Models\Information;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
 

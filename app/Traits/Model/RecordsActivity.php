@@ -2,7 +2,7 @@
 
 namespace App\Traits\Model;
 
-use App\Activity;
+use App\Models\Activity;
 
 trait RecordsActivity
 {

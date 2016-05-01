@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStylesTable extends Migration
+class CreateGalleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,10 @@ class CreateStylesTable extends Migration
      */
     public function up()
     {
-        Schema::create('styles', function (Blueprint $table) {
+        Schema::create('galleries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('styleable_id')->unsigned();
-            $table->string('styleable_type');
-            $table->string('name');
+            $table-> string('name');
             $table->string('description');
-            $table->string('similar_to')->nullable();
-            $table->string('reference')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateStylesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('styles');
+        Schema::drop('galleries');
     }
 }

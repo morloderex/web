@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Workout App</title>
+    <title>MWoW</title>
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -44,7 +44,16 @@
                         <a href="{{ url('/home') }}">Home</a>
                     </li>
                     <li>
-                        <a href="{{ route('post.index') }}">Workouts</a>
+                        <a href="{{ route('post.index') }}">Posts</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/about') }}">About us</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/contact') }}">Contact</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('photo.index') }}">Gallery</a>
                     </li>
                 </ul>
 

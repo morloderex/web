@@ -3,7 +3,7 @@
 namespace App\Traits\Model;
 
 
-use App\Information;
+use App\Models\Information;
 
 trait hasInformation
 {
@@ -12,7 +12,7 @@ trait hasInformation
      * 
      * @return mixed
      */
-    public function information()
+    public function Information()
     {
         return $this->morphMany(Information::class, 'informable');
     }

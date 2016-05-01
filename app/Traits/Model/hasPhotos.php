@@ -2,7 +2,7 @@
 
 namespace App\Traits\Model;
 
-use App\Photo;
+use App\Models\Photo;
 
 trait hasPhotos {
 	public function photos() {

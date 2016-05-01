@@ -25,3 +25,6 @@ storage/
 .env.example
 .idea
 .phpintel
+Vagrantfile
+.vagrant
+*.lock
