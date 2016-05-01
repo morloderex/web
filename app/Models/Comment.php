@@ -8,7 +8,7 @@ use App\Scopes\ModeratedScope;
 
 class Comment extends Model
 {
-    #use HasModerateTrait;
+    use HasModerateTrait;
     /**
      * @inheritdoc
      */

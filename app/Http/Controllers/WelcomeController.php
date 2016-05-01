@@ -14,15 +14,8 @@ class WelcomeController extends Controller
 {
     public function getIndex() {
 
-    	// Popular categories
-    	$categories = Category::popular();
+    	$changelogs = Category::latestChangelog();
 
-    	// Popular posts
-    	$posts = Post::popular(['id', 'title', 'description']);
-
-    	// number of users
-    	$users = User::count();
-
-    	return view('welcome', compact('categories', 'posts', 'users'));
+    	return view('welcome', compact('changelogs'));
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,28 +12,38 @@
 |
 */
 
-  Route::get('/', 'WelcomeController@getIndex');
+Route::get('/', 'WelcomeController@getIndex');
 
-  Route::auth();
+Route::auth();
 
-  Route::get('/login/random', 'Auth\AuthController@loginWithRandomUser');
+Route::get('faq', 'FaqController@index');
 
-  Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
-  Route::resource('user', UserController::class);
+Route::resource('user', UserController::class);
 
-    Route::group(['prefix' => 'armory', 'namespace' => 'Armory'], function () {
-            Route::resource('item', ItemController::class);
-            Route::resource('account', AccountController::class);
-            Route::resource('character', CharacterController::class);
-            Route::post('character/addItem', 'CharacterController@addItem');
-    });
-  
-  Route::resource('post', PostController::class);
-  Route::resource('photo', PhotoController::class);
-  Route::resource('category', CategoryController::class);
-  Route::resource('gallery', GalleryController::class);
+Route::group(['prefix' => 'armory', 'namespace' => 'Armory'], function () {
+    Route::resource('item', ItemController::class);
+    Route::resource('account', AccountController::class);
+    Route::resource('character', CharacterController::class);
+    Route::post('character/addItem', 'CharacterController@addItem');
+});
 
-  Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function() {
-    
-  });
+Route::resource('post', PostController::class);
+Route::get('post/display/{post}', [
+    'uses'  =>  'PostController@display',
+    'as'    =>  'post.display'
+]);
+
+Route::resource('photo', PhotoController::class);
+Route::resource('category', CategoryController::class);
+Route::resource('gallery', GalleryController::class);
+
+Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function() {
+
+});
+
+if(app()->environment('local', 'testing', 'development'))
+{
+    Route::get('/login/random', 'Auth\AuthController@loginWithRandomUser');
+}

@@ -172,7 +172,8 @@ return [
        Torann\LocalizationHelpers\LocalizationHelpersServiceProvider::class,
        Snowfire\Beautymail\BeautymailServiceProvider::class,
        Maknz\Slack\SlackServiceProvider::class,
-       Vinkla\Pusher\PusherServiceProvider::class
+       Vinkla\Pusher\PusherServiceProvider::class,
+       GrahamCampbell\Markdown\MarkdownServiceProvider::class
     ],
 
     /*
@@ -219,12 +220,12 @@ return [
         'Validator'     => Illuminate\Support\Facades\Validator::class,
         'View'          => Illuminate\Support\Facades\View::class,
         'Image'         => Intervention\Image\Facades\Image::class,
-      #  'Listify'      => Lookitsatravis\Listify\Listify::class,
         'Api'           =>  App\Facades\Api::class,
         'GeoIP'         => Torann\GeoIP\GeoIPFacade::class,
         'Moderate'      => Torann\Moderate\Facades\Moderate::class,
         'Slack'         => Maknz\Slack\Facades\Slack::class,
-        'Pusher'        => Vinkla\Pusher\Facades\Pusher::class
+        'Pusher'        => Vinkla\Pusher\Facades\Pusher::class,
+        'Markdown'      => GrahamCampbell\Markdown\Facades\Markdown::class
     ],
 
 ];

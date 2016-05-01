@@ -41,8 +41,8 @@ class Post extends Model
         RecordsActivity,
         scopeRandom,
         scopePopular,
-        scopeInactive;
-        //HasModerateTrait;
+        scopeInactive,
+        HasModerateTrait;
 
     /**
      * Remember all queries forever by default.
@@ -55,7 +55,6 @@ class Post extends Model
      * @inheritdoc
      */
     protected $with = [
-        'category',
         'user',
         'photos'
     ];

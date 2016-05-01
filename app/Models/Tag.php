@@ -22,7 +22,12 @@ class Tag extends Model
       static::creating(function(Tag $tag){
             $taggable = Taggable::whereTag($tag->tag)->get() ?: new Taggable($tag->tag);
             unset($tag->attributes['tag']);
-            $tag->Tags()->saveMany($taggable);
+            if($taggable instanceof Taggable)
+            {
+                $tag->Tags()->save($taggable);
+            } else {
+                $tag->Tags()->saveMany($taggable);
+            }
       });
     }
 

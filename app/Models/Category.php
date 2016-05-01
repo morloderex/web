@@ -69,10 +69,19 @@ class Category extends Model
     }
 
     /**
-     * @return Collection
+     * @return BelongsToMany
      */
     public function posts() : BelongsToMany
     {
         return $this->belongsToMany(Post::class);
+    }
+
+    public function scopeLatestChangelog($query, int $take = 10)
+    {
+        return $query->with(['posts', 'tags'])
+                ->where('name', '=', 'changelog')
+                ->orderBy('updated_at', 'DESC')
+                ->take($take)
+                ->get();
     }
 }

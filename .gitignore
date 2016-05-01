@@ -6,6 +6,7 @@ Homestead.json
 .env
 =======
 /public/storage
+/public/build
 Homestead.yaml
 Homestead.json
 
