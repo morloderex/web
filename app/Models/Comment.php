@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Scopes\ModeratedScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
@@ -49,7 +48,7 @@ class Comment extends Model
         parent::boot();
 
         // Only return moderated Comment(s) by default.
-        static::addGlobalScope(new ModeratedScope);
+        #static::addGlobalScope(new ModeratedScope);
     }
 
     public function author() : User

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Scopes\ActiveScope;
-use App\Scopes\ModeratedScope;
 use App\Scopes\Traits\scopeInactive;
 use App\Scopes\Traits\scopePopular;
 use App\Scopes\Traits\scopeRandom;
@@ -100,7 +99,7 @@ class Post extends Model
         static::addGlobalScope(new ActiveScope);
 
         // Only return moderated Post(s) by default.
-        static::addGlobalScope(new ModeratedScope);
+        #static::addGlobalScope(new ModeratedScope);
     }
 
     /**
