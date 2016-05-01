@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Torann\Moderate\HasModerateTrait;
 use App\Scopes\ModeratedScope;
+use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    use HasModerateTrait;
+    #use HasModerateTrait;
     /**
      * @inheritdoc
      */
@@ -53,14 +52,14 @@ class Comment extends Model
         static::addGlobalScope(new ModeratedScope);
     }
 
-    public function user() : User
-    {
-        return $this->belongsTo(User::class);
-    }
-
     public function author() : User
     {
         return $this->user();
+    }
+
+    public function user() : User
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function commentable() : Model

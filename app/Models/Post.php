@@ -2,28 +2,23 @@
 
 namespace App\Models;
 
-use App\Scopes\ActiveScope,
-    App\Scopes\ModeratedScope,
-    App\Scopes\Traits\scopeRandom,
-    App\Scopes\Traits\scopePopular,
-    App\Scopes\Traits\scopeInactive;
-
-use App\Traits\Model\isTaggable,
-    App\Traits\Model\Forgetable,
-    App\Traits\Model\hasPhotos,
-    App\Traits\Model\hasInformation,
-    App\Traits\Model\hasTestimonials,
-    App\Traits\Model\isCommentable,
-    App\Traits\Model\RecordsActivity;
-
-use Watson\Rememberable\Rememberable;
-use Torann\Moderate\HasModerateTrait;
-
-use Illuminate\Database\Eloquent\Model,
-    Illuminate\Database\Eloquent\Relations\BelongsToMany,
-    Illuminate\Database\Eloquent\Relations\BelongsTo;
-
+use App\Scopes\ActiveScope;
+use App\Scopes\ModeratedScope;
+use App\Scopes\Traits\scopeInactive;
+use App\Scopes\Traits\scopePopular;
+use App\Scopes\Traits\scopeRandom;
+use App\Traits\Model\Forgetable;
+use App\Traits\Model\hasInformation;
+use App\Traits\Model\hasPhotos;
+use App\Traits\Model\hasTestimonials;
+use App\Traits\Model\isCommentable;
+use App\Traits\Model\isTaggable;
+use App\Traits\Model\RecordsActivity;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
+use Watson\Rememberable\Rememberable;
 
 /**
  * Class Post
@@ -41,8 +36,9 @@ class Post extends Model
         RecordsActivity,
         scopeRandom,
         scopePopular,
-        scopeInactive,
-        HasModerateTrait;
+        scopeInactive;
+
+    #HasModerateTrait;
 
     /**
      * Remember all queries forever by default.
