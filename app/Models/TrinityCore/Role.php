@@ -3,9 +3,9 @@
 namespace App\Models\TrinityCore;
 
 
+use App\Traits\Model\RecordsActivity;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use App\Traits\Model\RecordsActivity;
 
 class Role extends Model
 {
@@ -14,7 +14,7 @@ class Role extends Model
     /**
      * @inheritdoc
     */
-    protected $connection = 'auth';
+    protected $connection = 'TrinityCore_auth';
 
     /**
      * @inheritdoc

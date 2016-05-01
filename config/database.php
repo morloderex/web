@@ -79,11 +79,11 @@ return [
             'strict'    => false,
         ],
 
-        'TrinityCore_character' => [
+        'TrinityCore_characters' => [
             'driver'    => 'mysql',
             'host'      => env('TRINITYCORE_DB_HOST', 'localhost'),
             'port'      => env('TRINITYCORE_DB_PORT', 3306),
-            'database'  => 'TrinityCore_character',
+            'database' => 'TrinityCore_characters',
             'username'  => env('TRINITYCORE_DB_USERNAME', 'root'),
             'password'  => env('TRINITYCORE_DB_PASSWORD', 'secret'),
             'charset'   => 'utf8',

@@ -3,14 +3,19 @@
 namespace App\Models\TrinityCore;
 
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Traits\Model\RecordsActivity;
+use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
 {
     use RecordsActivity;
-  
+
+    protected $connection = 'TrinityCore_characters';
+
+    protected $primaryKey = 'guid';
+
+    protected $table = 'gm_ticket';
+
     protected $fillable = [
       
     ];

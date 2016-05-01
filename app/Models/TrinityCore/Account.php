@@ -2,37 +2,40 @@
 
 namespace App\Models\TrinityCore;
 
+use App\Libraries\Hashing\TrinityCoreSha1Hasher;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use  App\Libraries\Hashing\TrinityCoreSha1Hasher;
 
 class Account extends Model
 {
-    /**
-     * @inheritdoc
-     */
-    protected $with = ['Tickets', 'Characters', 'Role'];
-    
-    /**
-     * The connection name for the model.
-     *
-     * @var string
-     */
-    protected $connection = 'TrinityCore_auth';
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'account';
-
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = False;
-
+    /**
+     * @inheritdoc
+     */
+    protected $with = ['Tickets', 'Characters', 'Role'];
+    /**
+     * The connection name for the model.
+     *
+     * @var string
+     */
+    protected $connection = 'TrinityCore_auth';
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'account';
+    /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
      *
@@ -81,7 +84,7 @@ class Account extends Model
      */
     public function Characters()
     {
-        return $this->hasMany(Character::class, 'id', 'account');
+        return $this->hasMany(Character::class, 'guid', 'account');
     }
 
     /**
@@ -91,7 +94,7 @@ class Account extends Model
      */
     public function Tickets()
     {
-        return $this->hasMany(Ticket::class, 'guid', 'playerGuid');
+        return $this->hasMany(Ticket::class, 'playerGuid', 'guid');
     }
 
     /**
