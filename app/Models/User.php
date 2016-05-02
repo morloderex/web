@@ -83,7 +83,7 @@ class User extends Authenticatable
         });
 
         static::created(function ($user) {
-            $this->validateUser();
+            $user->validateUser();
             $user->saveAccounts();
         });
     }
