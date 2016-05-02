@@ -151,19 +151,9 @@ class User extends Authenticatable
         $accounts = $this->accountCollection;
 
         $relation = $this->Accounts();
-        switch ($accounts) {
-            case $accounts instanceof Collection:
-                $relation->saveMany($accounts);
-                break;
-
-            case $accounts instanceof Account:
-                $relation->save($accounts);
-                break;
-
-            default:
-                dd(get_class($accounts));
-                break;
-        }
+        $accounts->each(function($account){
+            $this->Accounts()->save($account);
+        });
     }
 
     public function posts() : HasMany
