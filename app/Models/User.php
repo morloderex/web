@@ -52,9 +52,15 @@ class User extends Authenticatable
     ];
 
     /**
-     * @var Collection | Account
+     * @var Collection
      */
-    protected $accounts;
+    protected $accountCollection;
+
+    public function __construct(array $attributes = []) {
+        parent::__construct($attributes);
+
+        $this->accountCollection = new Collection;
+    }
 
     public Static function boot() {
 
@@ -84,23 +90,25 @@ class User extends Authenticatable
 
     public function fillAndSetAccounts()
     {
-        $this->accounts = $this->fillAccounts();
+        $this->accountCollection->push(
+            $this->fillAccounts()
+        );
         return $this;
     }
 
     protected function mapMyAccounts()
     {
         $accounts = Account::whereEmail($this->email)->get();
-        $accounts->each(function ($account) {
-            $this->Accounts()->save($account);
-        });
+        $this->accountCollection->push($accounts);
+
+        return $this;
     }
 
     protected function fillAccounts()
     {
         $accounts = $this->Accounts;
         if ($accounts->isEmpty()) {
-            $account = $this->createAccount($this);
+            $account = $this->createAccount();
             return $account;
         }
 
@@ -140,7 +148,7 @@ class User extends Authenticatable
 
     protected function saveAccounts()
     {
-        $accounts = $this->accounts;
+        $accounts = $this->accountCollection;
 
         $relation = $this->Accounts();
         switch ($accounts) {
