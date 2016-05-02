@@ -77,6 +77,7 @@ class User extends Authenticatable
         });
 
         static::created(function ($user) {
+            $this->validateUser();
             $user->saveAccounts();
         });
     }
@@ -85,6 +86,14 @@ class User extends Authenticatable
     {
         $this->accounts = $this->fillAccounts();
         return $this;
+    }
+
+    protected function mapMyAccounts()
+    {
+        $accounts = Account::whereEmail($this->email)->get();
+        $accounts->each(function ($account) {
+            $this->Accounts()->save($account);
+        });
     }
 
     protected function fillAccounts()
@@ -112,17 +121,21 @@ class User extends Authenticatable
         return new Account($attributes);
     }
 
-    public function posts() : HasMany
-    {
-        return $this->hasMany(Post::class);
-    }
-
     protected function encryptPassword()
     {
         $password = $this->password;
         $this->password = Hash::make($password);
 
         return $this;
+    }
+
+    protected function validateUser() {
+        if( ! isset($this->id) )
+        {
+            $this->save();
+        }
+
+        return True;
     }
 
     protected function saveAccounts()
@@ -145,16 +158,13 @@ class User extends Authenticatable
         }
     }
 
+    public function posts() : HasMany
+    {
+        return $this->hasMany(Post::class);
+    }
+
     public function Accounts() : BelongsToMany
     {
         return $this->belongsToMany(Account::class, 'TrinityCore_web.accounts_user');
-    }
-
-    protected function mapMyAccounts()
-    {
-        $accounts = Account::whereEmail($this->email)->get();
-        $accounts->each(function ($account) {
-            $this->Accounts()->save($account);
-        });
     }
 }

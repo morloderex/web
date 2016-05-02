@@ -30,8 +30,7 @@
         "laracasts/flash": "^2.0",
         "graham-campbell/markdown": "^6.1",
         "league/commonmark-extras": "^0.1.1",
-        "pda/pheanstalk": "^3.1",
-        "laravel/homestead": "^3.0"
+        "pda/pheanstalk": "^3.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -41,7 +40,8 @@
         "symfony/dom-crawler": "2.8.*|3.0.*",
         "laracasts/generators": "^1.1",
         "mpociot/laravel-test-factory-helper": "^0.2.0",
-        "andynoelker/laravel-5-view-generator": "^1.0"
+        "andynoelker/laravel-5-view-generator": "^1.0",
+        "laravel/homestead": "^3.0"
     },
     "autoload": {
         "classmap": [

@@ -29,3 +29,4 @@ storage/
 Vagrantfile
 .vagrant
 *.lock
+composer.lock
