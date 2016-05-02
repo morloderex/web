@@ -76,7 +76,7 @@ class User extends Authenticatable
             $user->encryptPassword();
         });
 
-        static::saved(function ($user) {
+        static::created(function ($user) {
             $user->saveAccounts();
         });
     }
