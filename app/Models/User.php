@@ -96,14 +96,6 @@ class User extends Authenticatable
         return $this;
     }
 
-    protected function mapMyAccounts()
-    {
-        $accounts = Account::whereEmail($this->email)->get();
-        $this->accountCollection->push($accounts);
-
-        return $this;
-    }
-
     protected function fillAccounts()
     {
         $accounts = $this->Accounts;
@@ -129,6 +121,19 @@ class User extends Authenticatable
         return new Account($attributes);
     }
 
+    public function posts() : HasMany
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    protected function mapMyAccounts()
+    {
+        $accounts = Account::whereEmail($this->email)->get();
+        $this->accountCollection->push($accounts);
+
+        return $this;
+    }
+
     protected function encryptPassword()
     {
         $password = $this->password;
@@ -151,14 +156,13 @@ class User extends Authenticatable
         $accounts = $this->accountCollection;
 
         $relation = $this->Accounts();
-        $accounts->each(function($account){
-            $this->Accounts()->save($account);
+        $accounts->each(function ($account) use ($relation) {
+            if ($account instanceof Collection) {
+                $relation->saveMany($account);
+            } else {
+                $relation->save($account);
+            }
         });
-    }
-
-    public function posts() : HasMany
-    {
-        return $this->hasMany(Post::class);
     }
 
     public function Accounts() : BelongsToMany
