@@ -35,7 +35,7 @@
                     <a href="{{ route('gallery.index') }}">Gallery</a>
                 </li>
                 <li>
-                    <a href="{{ route('forum.index') }}">Forum</a>
+                    <a href="{{ url('forum') }}">Forum</a>
                 </li>
             </ul>
 
