@@ -65,6 +65,7 @@ class User extends Authenticatable
         parent::__construct($attributes);
 
         $this->accountCollection = new Collection;
+        $this->resolvedAccountsCollection = new Collection;
     }
 
     public Static function boot() {
