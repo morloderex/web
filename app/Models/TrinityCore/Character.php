@@ -2,15 +2,13 @@
 
 namespace App\Models\TrinityCore;
 
-use Illuminate\Database\Eloquent\Model;
-
-use \Illuminate\Database\Eloquent\Relations\BelongsTo,
-    \Illuminate\Database\Eloquent\Relations\HasMany,
-    \Illuminate\Database\Eloquent\Relations\HasManyThrough;
-
-use App\Traits\Model\hasPhotos;
-
 use App\Libraries\Currency\IngameCurrencyConverter as CurrencyConverter;
+use App\Traits\Model\hasPhotos;
+use App\TrinityCore\Map;
+use App\TrinityCore\Zone;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Characters Model
@@ -22,18 +20,19 @@ class Character extends Model
     /**
      * @inheritdoc
      */
+    public $timestamps = False;
+    /**
+     * @inheritdoc
+     */
     protected $connection = 'TrinityCore_characters';
-
     /**
      * @inheritdoc
      */
     protected $table = 'characters';
-
     /**
      * @inheritdoc
      */
     protected $primaryKey = 'guid';
-
     /**
     * @inheritdoc
     */
@@ -54,7 +53,6 @@ class Character extends Model
         'zone',
         'cinematic'
     ];
-
     /**
      * @inheritdoc
      */
@@ -75,12 +73,6 @@ class Character extends Model
         'zone'          =>  'string',
         'cinematic'     =>  'boolean'
     ];
-
-    /**
-     * @inheritdoc
-     */
-    public $timestamps = False;
-
     /**
      * Array of in-game races enumerated with appropriate numbers.
      *
@@ -128,6 +120,36 @@ class Character extends Model
         '9' => 'Warlock',
         '11' => 'Druid'
     ];
+
+    /**
+     * Array of in-game genders.
+     *
+     * @var array
+     */
+    protected $genders = [
+        '0'   =>  'male',
+        '1'   =>  'female',
+    ];
+
+    public static function boot()
+    {
+        parent::boot();
+        
+        static::creating(function($character){
+           if( ! $character->guid )
+           {
+               $count = $character->all()->count();
+               if($count === 0)
+               {
+                   $newMax = 1;
+               } else {
+                   $newMax = $count+1;
+               }
+
+               $character->guid = $newMax;
+           }
+        });
+    }
 
     // -- Eloquent Relations -- //
 
@@ -193,6 +215,55 @@ class Character extends Model
 
     /**
      * Returns Class name based upon a given integer.
+     * @param  int    $race
+     * @return string
+     */
+    public function getRace(int $race) : string
+    {
+        return !array_key_exists($race, $this->races) ? 'unknown' : $this->races[$race];
+    }
+
+    /**
+     * Sets the Race attribute to a integer corresponding to the given input.
+     *
+     * @param $race
+     * @return Character
+     */
+    public function setRaceAttribute($race) : self
+    {
+        $this->attributes['race'] = $this->findArrayKey($race, $this->races);
+
+return $this;
+}
+
+    /**
+     * Returns the key corresponding to the given value
+     *
+     * @param $value
+     * @param array $array
+     * @return mixed
+     */
+    protected function findArrayKey($value, array $array)
+    {
+        switch (gettype($value))
+        {
+            case 'string':
+                if( ! is_numeric($value) )
+                {
+                    while( ($race = current($array)) !== False)
+                    {
+                        $value = key($array);
+                        break;
+                    }
+                }
+                break;
+        }
+
+        return $value;
+    }
+
+    /**
+     * Returns Class name based upon a given integer.
      * @param  int    $class
      * @return string
      */
@@ -200,6 +271,31 @@ class Character extends Model
     {
         return $this->getClass($class);
     }
+
+    /**
+     * Returns Class name based upon a given integer.
+     * @param  int    $class
+     * @return string
+     */
+    public function getClass(int $class) : string
+    {
+        return !array_key_exists($class, $this->classes) ? 'unknown' : $this->classes[$class];
+    }
+
+    /**
+     * Sets the Class attribute to a integer corresponding to the given input.
+     *
+     * @param $class
+     * @return Character
+     */
+    public function setClassAttribute($class) : self
+    {
+        $this->attributes['class'] = $this->findArrayKey($class, $this->classes);
+
+        return $this;
+    }
+
+    // -- Attribute "Coverters" -- //
 
     /**
      * Returns Gender based upon a given integer.
@@ -211,53 +307,32 @@ class Character extends Model
         return $this->getGender($gender);
     }
 
-    public function getMoneyAttribute(int $money) : string
-    {
-        return $this->getMoney($money);
-    }
-
-    // -- Attribute "Coverters" -- //
-
-    /**
-     * Returns Class name based upon a given integer.
-     * @param  int    $race
-     * @return string
-     */
-    public function getRace(int $race) : string
-    {
-        return !array_key_exists($number, $this->races) ? 'unknown' : $this->races[$number];
-    }
-
-    /**
-     * Returns Class name based upon a given integer.
-     * @param  int    $class
-     * @return string
-     */
-    public function getClass(int $number) : string
-    {
-        return !array_key_exists($number, $this->class) ? 'unknown' : $this->class[$number];
-    }
-
     /**
      * Returns Gender based upon a given integer.
      * @param  int    $gender
      * @return string
      */
-    public static function getGender(int $number) : string
+    public function getGender(int $number) : string
     {
-        switch ($number) {
-            case 0:
-                return 'male';
-                break;
+        return !array_key_exists($number, $this->genders) ? 'unknown' : $this->genders[$number];
+    }
 
-            case 1:
-                return 'female';
-                break;
+    /**
+     * Sets the Class attribute to a integer corresponding to the given input.
+     *
+     * @param $class
+     * @return Character
+     */
+    public function setGenderAttribute($gender) : self
+    {
+        $this->attributes['gender'] = $this->findArrayKey($gender, $this->genders);
 
-            default:
-                return 'unknown';
-                break;
-        }
+        return $this;
+    }
+
+    public function getMoneyAttribute(int $money) : string
+    {
+        return $this->getMoney($money);
     }
 
     /**

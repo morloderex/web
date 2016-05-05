@@ -14873,18 +14873,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = __webpack_require__(142)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(152)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(152);
 	if (false) {
 	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue"
-	hotAPI.createRecord(id, module.exports)
+	var hotAPI = require("vue-hot-reload-api");
+	hotAPI.install(require("vue"));
+	if (!hotAPI.compatible) return;
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue";
+	hotAPI.createRecord(id, module.exports);
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue")
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Select.vue");
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default;
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Select.vue");
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -15295,22 +15295,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(154)
-	module.exports = __webpack_require__(156)
+	__webpack_require__(154);
+	module.exports = __webpack_require__(156);
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(157)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(157);
 	if (false) {
 	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue"
-	hotAPI.createRecord(id, module.exports)
+	var hotAPI = require("vue-hot-reload-api");
+	hotAPI.install(require("vue"));
+	if (!hotAPI.compatible) return;
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue";
+	hotAPI.createRecord(id, module.exports);
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-0c89e409&file=Tab.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-0c89e409&file=Tab.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue")
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tab.vue");
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default;
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-0c89e409&file=Tab.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tab.vue");
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -15434,22 +15434,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(159)
-	module.exports = __webpack_require__(161)
+	__webpack_require__(159);
+	module.exports = __webpack_require__(161);
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(162)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(162);
 	if (false) {
 	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue"
-	hotAPI.createRecord(id, module.exports)
+	var hotAPI = require("vue-hot-reload-api");
+	hotAPI.install(require("vue"));
+	if (!hotAPI.compatible) return;
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue";
+	hotAPI.createRecord(id, module.exports);
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4765fae9&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4765fae9&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue")
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tabset.vue");
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default;
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/template-rewriter.js?id=_v-4765fae9&file=Tabset.vue!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tabset.vue");
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -15567,22 +15567,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(164)
-	module.exports = __webpack_require__(166)
+	__webpack_require__(164);
+	module.exports = __webpack_require__(166);
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(167)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(167);
 	if (false) {
 	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue"
-	hotAPI.createRecord(id, module.exports)
+	var hotAPI = require("vue-hot-reload-api");
+	hotAPI.install(require("vue"));
+	if (!hotAPI.compatible) return;
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue";
+	hotAPI.createRecord(id, module.exports);
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tooltip.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tooltip.vue")
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Tooltip.vue");
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default;
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Tooltip.vue");
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -15722,22 +15722,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(169)
-	module.exports = __webpack_require__(171)
+	__webpack_require__(169);
+	module.exports = __webpack_require__(171);
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(173)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(173);
 	if (false) {
 	(function () {
-	var hotAPI = require("vue-hot-reload-api")
-	hotAPI.install(require("vue"))
-	if (!hotAPI.compatible) return
-	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typeahead.vue"
-	hotAPI.createRecord(id, module.exports)
+	var hotAPI = require("vue-hot-reload-api");
+	hotAPI.install(require("vue"));
+	if (!hotAPI.compatible) return;
+	var id = "-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typeahead.vue";
+	hotAPI.createRecord(id, module.exports);
 	module.hot.accept(["-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typeahead.vue","-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Typeahead.vue"], function () {
-	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typeahead.vue")
-	if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Typeahead.vue")
+	var newOptions = require("-!babel!./../node_modules/vue-loader/lib/selector.js?type=script&index=0!./Typeahead.vue");
+	if (newOptions && newOptions.__esModule) newOptions = newOptions.default;
+	var newTemplate = require("-!vue-html-loader!./../node_modules/vue-loader/lib/selector.js?type=template&index=0!./Typeahead.vue");
 	hotAPI.update(id, newOptions, newTemplate)
 	})
 	})()
@@ -15990,6 +15990,1039 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ }
 /******/ ])
 });
-;
 //# sourceMappingURL=vue-strap.js.map
+/* http://keith-wood.name/countdown.html
+   Countdown for jQuery v1.6.3.
+   Written by Keith Wood (kbwood{at}iinet.com.au) January 2008.
+   Available under the MIT (https://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt) license. 
+   Please attribute the author if you use it. */
+(function ($) {
+    function Countdown() {
+        this.regional = [];
+        this.regional[''] = {
+            labels: ['Years', 'Months', 'Weeks', 'Days', 'Hours', 'Minutes', 'Seconds'],
+            labels1: ['Year', 'Month', 'Week', 'Day', 'Hour', 'Minute', 'Second'],
+            compactLabels: ['y', 'm', 'w', 'd'],
+            whichLabels: null,
+            digits: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+            timeSeparator: ':',
+            isRTL: false
+        };
+        this._defaults = {
+            until: null,
+            since: null,
+            timezone: null,
+            serverSync: null,
+            format: 'dHMS',
+            layout: '',
+            compact: false,
+            significant: 0,
+            description: '',
+            expiryUrl: '',
+            expiryText: '',
+            alwaysExpire: false,
+            onExpiry: null,
+            onTick: null,
+            tickInterval: 1
+        };
+        $.extend(this._defaults, this.regional['']);
+        this._serverSyncs = [];
+        var c = (typeof Date.now == 'function' ? Date.now : function () {
+            return new Date().getTime()
+        });
+        var d = (window.performance && typeof window.performance.now == 'function');
+
+        function timerCallBack(a) {
+            var b = (a < 1e12 ? (d ? (performance.now() + performance.timing.navigationStart) : c()) : a || c());
+            if (b - f >= 1000) {
+                x._updateTargets();
+                f = b
+            }
+            e(timerCallBack)
+        }
+        var e = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || null;
+        var f = 0;
+        if (!e || $.noRequestAnimationFrame) {
+            $.noRequestAnimationFrame = null;
+            setInterval(function () {
+                x._updateTargets()
+            }, 980)
+        } else {
+            f = window.animationStartTime || window.webkitAnimationStartTime || window.mozAnimationStartTime || window.oAnimationStartTime || window.msAnimationStartTime || c();
+            e(timerCallBack)
+        }
+    }
+    var Y = 0;
+    var O = 1;
+    var W = 2;
+    var D = 3;
+    var H = 4;
+    var M = 5;
+    var S = 6;
+    $.extend(Countdown.prototype, {
+        markerClassName: 'hasCountdown',
+        propertyName: 'countdown',
+        _rtlClass: 'countdown_rtl',
+        _sectionClass: 'countdown_section large-3 medium-3 columns',
+        _amountClass: 'countdown_amount',
+        _rowClass: 'countdown_row',
+        _holdingClass: 'countdown_holding',
+        _showClass: 'countdown_show',
+        _descrClass: 'countdown_descr',
+        _timerTargets: [],
+        setDefaults: function (a) {
+            this._resetExtraLabels(this._defaults, a);
+            $.extend(this._defaults, a || {})
+        },
+        UTCDate: function (a, b, c, e, f, g, h, i) {
+            if (typeof b == 'object' && b.constructor == Date) {
+                i = b.getMilliseconds();
+                h = b.getSeconds();
+                g = b.getMinutes();
+                f = b.getHours();
+                e = b.getDate();
+                c = b.getMonth();
+                b = b.getFullYear()
+            }
+            var d = new Date();
+            d.setUTCFullYear(b);
+            d.setUTCDate(1);
+            d.setUTCMonth(c || 0);
+            d.setUTCDate(e || 1);
+            d.setUTCHours(f || 0);
+            d.setUTCMinutes((g || 0) - (Math.abs(a) < 30 ? a * 60 : a));
+            d.setUTCSeconds(h || 0);
+            d.setUTCMilliseconds(i || 0);
+            return d
+        },
+        periodsToSeconds: function (a) {
+            return a[0] * 31557600 + a[1] * 2629800 + a[2] * 604800 + a[3] * 86400 + a[4] * 3600 + a[5] * 60 + a[6]
+        },
+        _attachPlugin: function (a, b) {
+            a = $(a);
+            if (a.hasClass(this.markerClassName)) {
+                return
+            }
+            var c = {
+                options: $.extend({}, this._defaults),
+                _periods: [0, 0, 0, 0, 0, 0, 0]
+            };
+            a.addClass(this.markerClassName).data(this.propertyName, c);
+            this._optionPlugin(a, b)
+        },
+        _addTarget: function (a) {
+            if (!this._hasTarget(a)) {
+                this._timerTargets.push(a)
+            }
+        },
+        _hasTarget: function (a) {
+            return ($.inArray(a, this._timerTargets) > -1)
+        },
+        _removeTarget: function (b) {
+            this._timerTargets = $.map(this._timerTargets, function (a) {
+                return (a == b ? null : a)
+            })
+        },
+        _updateTargets: function () {
+            for (var i = this._timerTargets.length - 1; i >= 0; i--) {
+                this._updateCountdown(this._timerTargets[i])
+            }
+        },
+        _optionPlugin: function (a, b, c) {
+            a = $(a);
+            var d = a.data(this.propertyName);
+            if (!b || (typeof b == 'string' && c == null)) {
+                var e = b;
+                b = (d || {}).options;
+                return (b && e ? b[e] : b)
+            }
+            if (!a.hasClass(this.markerClassName)) {
+                return
+            }
+            b = b || {};
+            if (typeof b == 'string') {
+                var e = b;
+                b = {};
+                b[e] = c
+            }
+            if (b.layout) {
+                b.layout = b.layout.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+            }
+            this._resetExtraLabels(d.options, b);
+            var f = (d.options.timezone != b.timezone);
+            $.extend(d.options, b);
+            this._adjustSettings(a, d, b.until != null || b.since != null || f);
+            var g = new Date();
+            if ((d._since && d._since < g) || (d._until && d._until > g)) {
+                this._addTarget(a[0])
+            }
+            this._updateCountdown(a, d)
+        },
+        _updateCountdown: function (a, b) {
+            var c = $(a);
+            b = b || c.data(this.propertyName);
+            if (!b) {
+                return
+            }
+            c.html(this._generateHTML(b)).toggleClass(this._rtlClass, b.options.isRTL);
+            if ($.isFunction(b.options.onTick)) {
+                var d = b._hold != 'lap' ? b._periods : this._calculatePeriods(b, b._show, b.options.significant, new Date());
+                if (b.options.tickInterval == 1 || this.periodsToSeconds(d) % b.options.tickInterval == 0) {
+                    b.options.onTick.apply(a, [d])
+                }
+            }
+            var e = b._hold != 'pause' && (b._since ? b._now.getTime() < b._since.getTime() : b._now.getTime() >= b._until.getTime());
+            if (e && !b._expiring) {
+                b._expiring = true;
+                if (this._hasTarget(a) || b.options.alwaysExpire) {
+                    this._removeTarget(a);
+                    if ($.isFunction(b.options.onExpiry)) {
+                        b.options.onExpiry.apply(a, [])
+                    }
+                    if (b.options.expiryText) {
+                        var f = b.options.layout;
+                        b.options.layout = b.options.expiryText;
+                        this._updateCountdown(a, b);
+                        b.options.layout = f
+                    }
+                    if (b.options.expiryUrl) {
+                        window.location = b.options.expiryUrl
+                    }
+                }
+                b._expiring = false
+            } else if (b._hold == 'pause') {
+                this._removeTarget(a)
+            }
+            c.data(this.propertyName, b)
+        },
+        _resetExtraLabels: function (a, b) {
+            var c = false;
+            for (var n in b) {
+                if (n != 'whichLabels' && n.match(/[Ll]abels/)) {
+                    c = true;
+                    break
+                }
+            }
+            if (c) {
+                for (var n in a) {
+                    if (n.match(/[Ll]abels[02-9]|compactLabels1/)) {
+                        a[n] = null
+                    }
+                }
+            }
+        },
+        _adjustSettings: function (a, b, c) {
+            var d;
+            var e = 0;
+            var f = null;
+            for (var i = 0; i < this._serverSyncs.length; i++) {
+                if (this._serverSyncs[i][0] == b.options.serverSync) {
+                    f = this._serverSyncs[i][1];
+                    break
+                }
+            }
+            if (f != null) {
+                e = (b.options.serverSync ? f : 0);
+                d = new Date()
+            } else {
+                var g = ($.isFunction(b.options.serverSync) ? b.options.serverSync.apply(a, []) : null);
+                d = new Date();
+                e = (g ? d.getTime() - g.getTime() : 0);
+                this._serverSyncs.push([b.options.serverSync, e])
+            }
+            var h = b.options.timezone;
+            h = (h == null ? -d.getTimezoneOffset() : h);
+            if (c || (!c && b._until == null && b._since == null)) {
+                b._since = b.options.since;
+                if (b._since != null) {
+                    b._since = this.UTCDate(h, this._determineTime(b._since, null));
+                    if (b._since && e) {
+                        b._since.setMilliseconds(b._since.getMilliseconds() + e)
+                    }
+                }
+                b._until = this.UTCDate(h, this._determineTime(b.options.until, d));
+                if (e) {
+                    b._until.setMilliseconds(b._until.getMilliseconds() + e)
+                }
+            }
+            b._show = this._determineShow(b)
+        },
+        _destroyPlugin: function (a) {
+            a = $(a);
+            if (!a.hasClass(this.markerClassName)) {
+                return
+            }
+            this._removeTarget(a[0]);
+            a.removeClass(this.markerClassName).empty().removeData(this.propertyName)
+        },
+        _pausePlugin: function (a) {
+            this._hold(a, 'pause')
+        },
+        _lapPlugin: function (a) {
+            this._hold(a, 'lap')
+        },
+        _resumePlugin: function (a) {
+            this._hold(a, null)
+        },
+        _hold: function (a, b) {
+            var c = $.data(a, this.propertyName);
+            if (c) {
+                if (c._hold == 'pause' && !b) {
+                    c._periods = c._savePeriods;
+                    var d = (c._since ? '-' : '+');
+                    c[c._since ? '_since' : '_until'] = this._determineTime(d + c._periods[0] + 'y' + d + c._periods[1] + 'o' + d + c._periods[2] + 'w' + d + c._periods[3] + 'd' + d + c._periods[4] + 'h' + d + c._periods[5] + 'm' + d + c._periods[6] + 's');
+                    this._addTarget(a)
+                }
+                c._hold = b;
+                c._savePeriods = (b == 'pause' ? c._periods : null);
+                $.data(a, this.propertyName, c);
+                this._updateCountdown(a, c)
+            }
+        },
+        _getTimesPlugin: function (a) {
+            var b = $.data(a, this.propertyName);
+            return (!b ? null : (b._hold == 'pause' ? b._savePeriods : (!b._hold ? b._periods : this._calculatePeriods(b, b._show, b.options.significant, new Date()))))
+        },
+        _determineTime: function (k, l) {
+            var m = function (a) {
+                var b = new Date();
+                b.setTime(b.getTime() + a * 1000);
+                return b
+            };
+            var n = function (a) {
+                a = a.toLowerCase();
+                var b = new Date();
+                var c = b.getFullYear();
+                var d = b.getMonth();
+                var e = b.getDate();
+                var f = b.getHours();
+                var g = b.getMinutes();
+                var h = b.getSeconds();
+                var i = /([+-]?[0-9]+)\s*(s|m|h|d|w|o|y)?/g;
+                var j = i.exec(a);
+                while (j) {
+                    switch (j[2] || 's') {
+                    case 's':
+                        h += parseInt(j[1], 10);
+                        break;
+                    case 'm':
+                        g += parseInt(j[1], 10);
+                        break;
+                    case 'h':
+                        f += parseInt(j[1], 10);
+                        break;
+                    case 'd':
+                        e += parseInt(j[1], 10);
+                        break;
+                    case 'w':
+                        e += parseInt(j[1], 10) * 7;
+                        break;
+                    case 'o':
+                        d += parseInt(j[1], 10);
+                        e = Math.min(e, x._getDaysInMonth(c, d));
+                        break;
+                    case 'y':
+                        c += parseInt(j[1], 10);
+                        e = Math.min(e, x._getDaysInMonth(c, d));
+                        break
+                    }
+                    j = i.exec(a)
+                }
+                return new Date(c, d, e, f, g, h, 0)
+            };
+            var o = (k == null ? l : (typeof k == 'string' ? n(k) : (typeof k == 'number' ? m(k) : k)));
+            if (o) o.setMilliseconds(0);
+            return o
+        },
+        _getDaysInMonth: function (a, b) {
+            return 32 - new Date(a, b, 32).getDate()
+        },
+        _normalLabels: function (a) {
+            return a
+        },
+        _generateHTML: function (c) {
+            var d = this;
+            c._periods = (c._hold ? c._periods : this._calculatePeriods(c, c._show, c.options.significant, new Date()));
+            var e = false;
+            var f = 0;
+            var g = c.options.significant;
+            var h = $.extend({}, c._show);
+            for (var i = Y; i <= S; i++) {
+                e |= (c._show[i] == '?' && c._periods[i] > 0);
+                h[i] = (c._show[i] == '?' && !e ? null : c._show[i]);
+                f += (h[i] ? 1 : 0);
+                g -= (c._periods[i] > 0 ? 1 : 0)
+            }
+            var j = [false, false, false, false, false, false, false];
+            for (var i = S; i >= Y; i--) {
+                if (c._show[i]) {
+                    if (c._periods[i]) {
+                        j[i] = true
+                    } else {
+                        j[i] = g > 0;
+                        g--
+                    }
+                }
+            }
+            var k = (c.options.compact ? c.options.compactLabels : c.options.labels);
+            var l = c.options.whichLabels || this._normalLabels;
+            var m = function (a) {
+                var b = c.options['compactLabels' + l(c._periods[a])];
+                return (h[a] ? d._translateDigits(c, c._periods[a]) + (b ? b[a] : k[a]) + ' ' : '')
+            };
+            var n = function (a) {
+                var b = c.options['labels' + l(c._periods[a])];
+                return ((!c.options.significant && h[a]) || (c.options.significant && j[a]) ? '<span class="' + x._sectionClass + '">' + '<span class="' + x._amountClass + '">' + d._translateDigits(c, c._periods[a]) + '</span><br/>' + (b ? b[a] : k[a]) + '</span>' : '')
+            };
+            return (c.options.layout ? this._buildLayout(c, h, c.options.layout, c.options.compact, c.options.significant, j) : ((c.options.compact ? '<span class="' + this._rowClass + ' ' + this._amountClass + (c._hold ? ' ' + this._holdingClass : '') + '">' + m(Y) + m(O) + m(W) + m(D) + (h[H] ? this._minDigits(c, c._periods[H], 2) : '') + (h[M] ? (h[H] ? c.options.timeSeparator : '') + this._minDigits(c, c._periods[M], 2) : '') + (h[S] ? (h[H] || h[M] ? c.options.timeSeparator : '') + this._minDigits(c, c._periods[S], 2) : '') : '<span class="' + this._rowClass + ' ' + this._showClass + (c.options.significant || f) + (c._hold ? ' ' + this._holdingClass : '') + '">' + n(Y) + n(O) + n(W) + n(D) + n(H) + n(M) + n(S)) + '</span>' + (c.options.description ? '<span class="' + this._rowClass + ' ' + this._descrClass + '">' + c.options.description + '</span>' : '')))
+        },
+        _buildLayout: function (c, d, e, f, g, h) {
+            var j = c.options[f ? 'compactLabels' : 'labels'];
+            var k = c.options.whichLabels || this._normalLabels;
+            var l = function (a) {
+                return (c.options[(f ? 'compactLabels' : 'labels') + k(c._periods[a])] || j)[a]
+            };
+            var m = function (a, b) {
+                return c.options.digits[Math.floor(a / b) % 10]
+            };
+            var o = {
+                desc: c.options.description,
+                sep: c.options.timeSeparator,
+                yl: l(Y),
+                yn: this._minDigits(c, c._periods[Y], 1),
+                ynn: this._minDigits(c, c._periods[Y], 2),
+                ynnn: this._minDigits(c, c._periods[Y], 3),
+                y1: m(c._periods[Y], 1),
+                y10: m(c._periods[Y], 10),
+                y100: m(c._periods[Y], 100),
+                y1000: m(c._periods[Y], 1000),
+                ol: l(O),
+                on: this._minDigits(c, c._periods[O], 1),
+                onn: this._minDigits(c, c._periods[O], 2),
+                onnn: this._minDigits(c, c._periods[O], 3),
+                o1: m(c._periods[O], 1),
+                o10: m(c._periods[O], 10),
+                o100: m(c._periods[O], 100),
+                o1000: m(c._periods[O], 1000),
+                wl: l(W),
+                wn: this._minDigits(c, c._periods[W], 1),
+                wnn: this._minDigits(c, c._periods[W], 2),
+                wnnn: this._minDigits(c, c._periods[W], 3),
+                w1: m(c._periods[W], 1),
+                w10: m(c._periods[W], 10),
+                w100: m(c._periods[W], 100),
+                w1000: m(c._periods[W], 1000),
+                dl: l(D),
+                dn: this._minDigits(c, c._periods[D], 1),
+                dnn: this._minDigits(c, c._periods[D], 2),
+                dnnn: this._minDigits(c, c._periods[D], 3),
+                d1: m(c._periods[D], 1),
+                d10: m(c._periods[D], 10),
+                d100: m(c._periods[D], 100),
+                d1000: m(c._periods[D], 1000),
+                hl: l(H),
+                hn: this._minDigits(c, c._periods[H], 1),
+                hnn: this._minDigits(c, c._periods[H], 2),
+                hnnn: this._minDigits(c, c._periods[H], 3),
+                h1: m(c._periods[H], 1),
+                h10: m(c._periods[H], 10),
+                h100: m(c._periods[H], 100),
+                h1000: m(c._periods[H], 1000),
+                ml: l(M),
+                mn: this._minDigits(c, c._periods[M], 1),
+                mnn: this._minDigits(c, c._periods[M], 2),
+                mnnn: this._minDigits(c, c._periods[M], 3),
+                m1: m(c._periods[M], 1),
+                m10: m(c._periods[M], 10),
+                m100: m(c._periods[M], 100),
+                m1000: m(c._periods[M], 1000),
+                sl: l(S),
+                sn: this._minDigits(c, c._periods[S], 1),
+                snn: this._minDigits(c, c._periods[S], 2),
+                snnn: this._minDigits(c, c._periods[S], 3),
+                s1: m(c._periods[S], 1),
+                s10: m(c._periods[S], 10),
+                s100: m(c._periods[S], 100),
+                s1000: m(c._periods[S], 1000)
+            };
+            var p = e;
+            for (var i = Y; i <= S; i++) {
+                var q = 'yowdhms'.charAt(i);
+                var r = new RegExp('\\{' + q + '<\\}([\\s\\S]*)\\{' + q + '>\\}', 'g');
+                p = p.replace(r, ((!g && d[i]) || (g && h[i]) ? '$1' : ''))
+            }
+            $.each(o, function (n, v) {
+                var a = new RegExp('\\{' + n + '\\}', 'g');
+                p = p.replace(a, v)
+            });
+            return p
+        },
+        _minDigits: function (a, b, c) {
+            b = '' + b;
+            if (b.length >= c) {
+                return this._translateDigits(a, b)
+            }
+            b = '0000000000' + b;
+            return this._translateDigits(a, b.substr(b.length - c))
+        },
+        _translateDigits: function (b, c) {
+            return ('' + c).replace(/[0-9]/g, function (a) {
+                return b.options.digits[a]
+            })
+        },
+        _determineShow: function (a) {
+            var b = a.options.format;
+            var c = [];
+            c[Y] = (b.match('y') ? '?' : (b.match('Y') ? '!' : null));
+            c[O] = (b.match('o') ? '?' : (b.match('O') ? '!' : null));
+            c[W] = (b.match('w') ? '?' : (b.match('W') ? '!' : null));
+            c[D] = (b.match('d') ? '?' : (b.match('D') ? '!' : null));
+            c[H] = (b.match('h') ? '?' : (b.match('H') ? '!' : null));
+            c[M] = (b.match('m') ? '?' : (b.match('M') ? '!' : null));
+            c[S] = (b.match('s') ? '?' : (b.match('S') ? '!' : null));
+            return c
+        },
+        _calculatePeriods: function (c, d, e, f) {
+            c._now = f;
+            c._now.setMilliseconds(0);
+            var g = new Date(c._now.getTime());
+            if (c._since) {
+                if (f.getTime() < c._since.getTime()) {
+                    c._now = f = g
+                } else {
+                    f = c._since
+                }
+            } else {
+                g.setTime(c._until.getTime());
+                if (f.getTime() > c._until.getTime()) {
+                    c._now = f = g
+                }
+            }
+            var h = [0, 0, 0, 0, 0, 0, 0];
+            if (d[Y] || d[O]) {
+                var i = x._getDaysInMonth(f.getFullYear(), f.getMonth());
+                var j = x._getDaysInMonth(g.getFullYear(), g.getMonth());
+                var k = (g.getDate() == f.getDate() || (g.getDate() >= Math.min(i, j) && f.getDate() >= Math.min(i, j)));
+                var l = function (a) {
+                    return (a.getHours() * 60 + a.getMinutes()) * 60 + a.getSeconds()
+                };
+                var m = Math.max(0, (g.getFullYear() - f.getFullYear()) * 12 + g.getMonth() - f.getMonth() + ((g.getDate() < f.getDate() && !k) || (k && l(g) < l(f)) ? -1 : 0));
+                h[Y] = (d[Y] ? Math.floor(m / 12) : 0);
+                h[O] = (d[O] ? m - h[Y] * 12 : 0);
+                f = new Date(f.getTime());
+                var n = (f.getDate() == i);
+                var o = x._getDaysInMonth(f.getFullYear() + h[Y], f.getMonth() + h[O]);
+                if (f.getDate() > o) {
+                    f.setDate(o)
+                }
+                f.setFullYear(f.getFullYear() + h[Y]);
+                f.setMonth(f.getMonth() + h[O]);
+                if (n) {
+                    f.setDate(o)
+                }
+            }
+            var p = Math.floor((g.getTime() - f.getTime()) / 1000);
+            var q = function (a, b) {
+                h[a] = (d[a] ? Math.floor(p / b) : 0);
+                p -= h[a] * b
+            };
+            q(W, 604800);
+            q(D, 86400);
+            q(H, 3600);
+            q(M, 60);
+            q(S, 1);
+            if (p > 0 && !c._since) {
+                var r = [1, 12, 4.3482, 7, 24, 60, 60];
+                var s = S;
+                var t = 1;
+                for (var u = S; u >= Y; u--) {
+                    if (d[u]) {
+                        if (h[s] >= t) {
+                            h[s] = 0;
+                            p = 1
+                        }
+                        if (p > 0) {
+                            h[u]++;
+                            p = 0;
+                            s = u;
+                            t = 1
+                        }
+                    }
+                    t *= r[u]
+                }
+            }
+            if (e) {
+                for (var u = Y; u <= S; u++) {
+                    if (e && h[u]) {
+                        e--
+                    } else if (!e) {
+                        h[u] = 0
+                    }
+                }
+            }
+            return h
+        }
+    });
+    var w = ['getTimes'];
+
+    function isNotChained(a, b) {
+        if (a == 'option' && (b.length == 0 || (b.length == 1 && typeof b[0] == 'string'))) {
+            return true
+        }
+        return $.inArray(a, w) > -1
+    }
+    $.fn.countdown = function (a) {
+        var b = Array.prototype.slice.call(arguments, 1);
+        if (isNotChained(a, b)) {
+            return x['_' + a + 'Plugin'].apply(x, [this[0]].concat(b))
+        }
+        return this.each(function () {
+            if (typeof a == 'string') {
+                if (!x['_' + a + 'Plugin']) {
+                    throw 'Unknown command: ' + a;
+                }
+                x['_' + a + 'Plugin'].apply(x, [this].concat(b))
+            } else {
+                x._attachPlugin(this, a || {})
+            }
+        })
+    };
+    var x = $.countdown = new Countdown()
+})(jQuery);
+
+
+
+jQuery(function($) {
+  "use strict";
+/* ==============================================
+   Countdown
+=============================================== */
+  // Create a countdown instance. Change the launchDay according to your needs.
+  // The month ranges from 0 to 11. I specify the month from 1 to 12 and manually subtract the 1.
+  // Thus the launchDay below denotes 7 May, 2014.
+  var launchDay = new Date(2016, 10-1, 14);
+  $('#timer').countdown({
+  until: launchDay
+  });
+
+
+/* ==============================================
+  Bx Slider
+=============================================== */
+
+  $('.bxslider').bxSlider({
+      auto: true,
+      pager:false,
+      mode: 'fade',
+      speed: 1500,
+      pause:5000
+      });
+
+    /* ----------------------------------------------------------- */
+   /*  Animation
+   /* ----------------------------------------------------------- */
+        new WOW().init();
+
+   /* ==============================================
+    Bactstretch js
+=============================================== */
+      $.backstretch([
+          "images/bx-slider/bg2.jpg",
+          "images/bx-slider/bg1.jpg",
+          "images/bx-slider/bg3.jpg"
+        ], {
+            fade: 750,
+            duration: 4000
+        });   
+
+
+
+});
+/*! Backstretch - v2.0.4 - 2013-06-19
+* http://srobbin.com/jquery-plugins/backstretch/
+* Copyright (c) 2013 Scott Robbin; Licensed MIT */
+
+(function ($, window, undefined) {
+	'use strict';
+
+  /* PLUGIN DEFINITION
+   * ========================= */
+
+  $.fn.backstretch = function (images, options) {
+    // We need at least one image or method name
+    if (images === undefined || images.length === 0) {
+      $.error("No images were supplied for Backstretch");
+    }
+
+    /*
+     * Scroll the page one pixel to get the right window height on iOS
+     * Pretty harmless for everyone else
+    */
+    if ($(window).scrollTop() === 0 ) {
+      window.scrollTo(0, 0);
+    }
+
+    return this.each(function () {
+      var $this = $(this)
+        , obj = $this.data('backstretch');
+
+      // Do we already have an instance attached to this element?
+      if (obj) {
+
+        // Is this a method they're trying to execute?
+        if (typeof images == 'string' && typeof obj[images] == 'function') {
+          // Call the method
+          obj[images](options);
+
+          // No need to do anything further
+          return;
+        }
+
+        // Merge the old options with the new
+        options = $.extend(obj.options, options);
+
+        // Remove the old instance
+        obj.destroy(true);
+      }
+
+      obj = new Backstretch(this, images, options);
+      $this.data('backstretch', obj);
+    });
+  };
+
+  // If no element is supplied, we'll attach to body
+  $.backstretch = function (images, options) {
+    // Return the instance
+    return $('body')
+            .backstretch(images, options)
+            .data('backstretch');
+  };
+
+  // Custom selector
+  $.expr[':'].backstretch = function(elem) {
+    return $(elem).data('backstretch') !== undefined;
+  };
+
+  /* DEFAULTS
+   * ========================= */
+
+  $.fn.backstretch.defaults = {
+      centeredX: true   // Should we center the image on the X axis?
+    , centeredY: true   // Should we center the image on the Y axis?
+    , duration: 5000    // Amount of time in between slides (if slideshow)
+    , fade: 0           // Speed of fade transition between slides
+  };
+
+  /* STYLES
+   * 
+   * Baked-in styles that we'll apply to our elements.
+   * In an effort to keep the plugin simple, these are not exposed as options.
+   * That said, anyone can override these in their own stylesheet.
+   * ========================= */
+  var styles = {
+      wrap: {
+          left: 0
+        , top: 0
+        , overflow: 'hidden'
+        , margin: 0
+        , padding: 0
+        , height: '100%'
+        , width: '100%'
+        , zIndex: -999999
+      }
+    , img: {
+          position: 'absolute'
+        , display: 'none'
+        , margin: 0
+        , padding: 0
+        , border: 'none'
+        , width: 'auto'
+        , height: 'auto'
+        , maxHeight: 'none'
+        , maxWidth: 'none'
+        , zIndex: -999999
+      }
+  };
+
+  /* CLASS DEFINITION
+   * ========================= */
+  var Backstretch = function (container, images, options) {
+    this.options = $.extend({}, $.fn.backstretch.defaults, options || {});
+
+    /* In its simplest form, we allow Backstretch to be called on an image path.
+     * e.g. $.backstretch('/path/to/image.jpg')
+     * So, we need to turn this back into an array.
+     */
+    this.images = $.isArray(images) ? images : [images];
+
+    // Preload images
+    $.each(this.images, function () {
+      $('<img />')[0].src = this;
+    });    
+
+    // Convenience reference to know if the container is body.
+    this.isBody = container === document.body;
+
+    /* We're keeping track of a few different elements
+     *
+     * Container: the element that Backstretch was called on.
+     * Wrap: a DIV that we place the image into, so we can hide the overflow.
+     * Root: Convenience reference to help calculate the correct height.
+     */
+    this.$container = $(container);
+    this.$root = this.isBody ? supportsFixedPosition ? $(window) : $(document) : this.$container;
+
+    // Don't create a new wrap if one already exists (from a previous instance of Backstretch)
+    var $existing = this.$container.children(".backstretch").first();
+    this.$wrap = $existing.length ? $existing : $('<div class="backstretch"></div>').css(styles.wrap).appendTo(this.$container);
+
+    // Non-body elements need some style adjustments
+    if (!this.isBody) {
+      // If the container is statically positioned, we need to make it relative,
+      // and if no zIndex is defined, we should set it to zero.
+      var position = this.$container.css('position')
+        , zIndex = this.$container.css('zIndex');
+
+      this.$container.css({
+          position: position === 'static' ? 'relative' : position
+        , zIndex: zIndex === 'auto' ? 0 : zIndex
+        , background: 'none'
+      });
+      
+      // Needs a higher z-index
+      this.$wrap.css({zIndex: -999998});
+    }
+
+    // Fixed or absolute positioning?
+    this.$wrap.css({
+      position: this.isBody && supportsFixedPosition ? 'fixed' : 'absolute'
+    });
+
+    // Set the first image
+    this.index = 0;
+    this.show(this.index);
+
+    // Listen for resize
+    $(window).on('resize.backstretch', $.proxy(this.resize, this))
+             .on('orientationchange.backstretch', $.proxy(function () {
+                // Need to do this in order to get the right window height
+                if (this.isBody && window.pageYOffset === 0) {
+                  window.scrollTo(0, 1);
+                  this.resize();
+                }
+             }, this));
+  };
+
+  /* PUBLIC METHODS
+   * ========================= */
+  Backstretch.prototype = {
+      resize: function () {
+        try {
+          var bgCSS = {left: 0, top: 0}
+            , rootWidth = this.isBody ? this.$root.width() : this.$root.innerWidth()
+            , bgWidth = rootWidth
+            , rootHeight = this.isBody ? ( window.innerHeight ? window.innerHeight : this.$root.height() ) : this.$root.innerHeight()
+            , bgHeight = bgWidth / this.$img.data('ratio')
+            , bgOffset;
+
+            // Make adjustments based on image ratio
+            if (bgHeight >= rootHeight) {
+                bgOffset = (bgHeight - rootHeight) / 2;
+                if(this.options.centeredY) {
+                  bgCSS.top = '-' + bgOffset + 'px';
+                }
+            } else {
+                bgHeight = rootHeight;
+                bgWidth = bgHeight * this.$img.data('ratio');
+                bgOffset = (bgWidth - rootWidth) / 2;
+                if(this.options.centeredX) {
+                  bgCSS.left = '-' + bgOffset + 'px';
+                }
+            }
+
+            this.$wrap.css({width: rootWidth, height: rootHeight})
+                      .find('img:not(.deleteable)').css({width: bgWidth, height: bgHeight}).css(bgCSS);
+        } catch(err) {
+            // IE7 seems to trigger resize before the image is loaded.
+            // This try/catch block is a hack to let it fail gracefully.
+        }
+
+        return this;
+      }
+
+      // Show the slide at a certain position
+    , show: function (newIndex) {
+
+        // Validate index
+        if (Math.abs(newIndex) > this.images.length - 1) {
+          return;
+        }
+
+        // Vars
+        var self = this
+          , oldImage = self.$wrap.find('img').addClass('deleteable')
+          , evtOptions = { relatedTarget: self.$container[0] };
+
+        // Trigger the "before" event
+        self.$container.trigger($.Event('backstretch.before', evtOptions), [self, newIndex]); 
+
+        // Set the new index
+        this.index = newIndex;
+
+        // Pause the slideshow
+        clearInterval(self.interval);
+
+        // New image
+        self.$img = $('<img />')
+                      .css(styles.img)
+                      .bind('load', function (e) {
+                        var imgWidth = this.width || $(e.target).width()
+                          , imgHeight = this.height || $(e.target).height();
+                        
+                        // Save the ratio
+                        $(this).data('ratio', imgWidth / imgHeight);
+
+                        // Show the image, then delete the old one
+                        // "speed" option has been deprecated, but we want backwards compatibilty
+                        $(this).fadeIn(self.options.speed || self.options.fade, function () {
+                          oldImage.remove();
+
+                          // Resume the slideshow
+                          if (!self.paused) {
+                            self.cycle();
+                          }
+
+                          // Trigger the "after" and "show" events
+                          // "show" is being deprecated
+                          $(['after', 'show']).each(function () {
+                            self.$container.trigger($.Event('backstretch.' + this, evtOptions), [self, newIndex]);
+                          });
+                        });
+
+                        // Resize
+                        self.resize();
+                      })
+                      .appendTo(self.$wrap);
+
+        // Hack for IE img onload event
+        self.$img.attr('src', self.images[newIndex]);
+        return self;
+      }
+
+    , next: function () {
+        // Next slide
+        return this.show(this.index < this.images.length - 1 ? this.index + 1 : 0);
+      }
+
+    , prev: function () {
+        // Previous slide
+        return this.show(this.index === 0 ? this.images.length - 1 : this.index - 1);
+      }
+
+    , pause: function () {
+        // Pause the slideshow
+        this.paused = true;
+        return this;
+      }
+
+    , resume: function () {
+        // Resume the slideshow
+        this.paused = false;
+        this.next();
+        return this;
+      }
+
+    , cycle: function () {
+        // Start/resume the slideshow
+        if(this.images.length > 1) {
+          // Clear the interval, just in case
+          clearInterval(this.interval);
+
+          this.interval = setInterval($.proxy(function () {
+            // Check for paused slideshow
+            if (!this.paused) {
+              this.next();
+            }
+          }, this), this.options.duration);
+        }
+        return this;
+      }
+
+    , destroy: function (preserveBackground) {
+        // Stop the resize events
+        $(window).off('resize.backstretch orientationchange.backstretch');
+
+        // Clear the interval
+        clearInterval(this.interval);
+
+        // Remove Backstretch
+        if(!preserveBackground) {
+          this.$wrap.remove();          
+        }
+        this.$container.removeData('backstretch');
+      }
+  };
+
+  /* SUPPORTS FIXED POSITION?
+   *
+   * Based on code from jQuery Mobile 1.1.0
+   * http://jquerymobile.com/
+   *
+   * In a nutshell, we need to figure out if fixed positioning is supported.
+   * Unfortunately, this is very difficult to do on iOS, and usually involves
+   * injecting content, scrolling the page, etc.. It's ugly.
+   * jQuery Mobile uses this workaround. It's not ideal, but works.
+   *
+   * Modified to detect IE6
+   * ========================= */
+
+  var supportsFixedPosition = (function () {
+    var ua = navigator.userAgent
+      , platform = navigator.platform
+        // Rendering engine is Webkit, and capture major version
+      , wkmatch = ua.match( /AppleWebKit\/([0-9]+)/ )
+      , wkversion = !!wkmatch && wkmatch[ 1 ]
+      , ffmatch = ua.match( /Fennec\/([0-9]+)/ )
+      , ffversion = !!ffmatch && ffmatch[ 1 ]
+      , operammobilematch = ua.match( /Opera Mobi\/([0-9]+)/ )
+      , omversion = !!operammobilematch && operammobilematch[ 1 ]
+      , iematch = ua.match( /MSIE ([0-9]+)/ )
+      , ieversion = !!iematch && iematch[ 1 ];
+
+    return !(
+      // iOS 4.3 and older : Platform is iPhone/Pad/Touch and Webkit version is less than 534 (ios5)
+      ((platform.indexOf( "iPhone" ) > -1 || platform.indexOf( "iPad" ) > -1  || platform.indexOf( "iPod" ) > -1 ) && wkversion && wkversion < 534) ||
+      
+      // Opera Mini
+      (window.operamini && ({}).toString.call( window.operamini ) === "[object OperaMini]") ||
+      (operammobilematch && omversion < 7458) ||
+      
+      //Android lte 2.1: Platform is Android and Webkit version is less than 533 (Android 2.2)
+      (ua.indexOf( "Android" ) > -1 && wkversion && wkversion < 533) ||
+      
+      // Firefox Mobile before 6.0 -
+      (ffversion && ffversion < 6) ||
+      
+      // WebOS less than 3
+      ("palmGetResource" in window && wkversion && wkversion < 534) ||
+      
+      // MeeGo
+      (ua.indexOf( "MeeGo" ) > -1 && ua.indexOf( "NokiaBrowser/8.5.0" ) > -1) ||
+      
+      // IE6
+      (ieversion && ieversion <= 6)
+    );
+  }());
+
+}(jQuery, window));
+/**
+ * BxSlider v4.1.2 - Fully loaded, responsive content slider
+ * http://bxslider.com
+ *
+ * Copyright 2014, Steven Wanderski - http://stevenwanderski.com - http://bxcreative.com
+ * Written while drinking Belgian ales and listening to jazz
+ *
+ * Released under the MIT license - http://opensource.org/licenses/MIT
+ */
+!function(t){var e={},s={mode:"horizontal",slideSelector:"",infiniteLoop:!0,hideControlOnEnd:!1,speed:500,easing:null,slideMargin:0,startSlide:0,randomStart:!1,captions:!1,ticker:!1,tickerHover:!1,adaptiveHeight:!1,adaptiveHeightSpeed:500,video:!1,useCSS:!0,preloadImages:"visible",responsive:!0,slideZIndex:50,touchEnabled:!0,swipeThreshold:50,oneToOneTouch:!0,preventDefaultSwipeX:!0,preventDefaultSwipeY:!1,pager:!0,pagerType:"full",pagerShortSeparator:" / ",pagerSelector:null,buildPager:null,pagerCustom:null,controls:!0,nextText:"Next",prevText:"Prev",nextSelector:null,prevSelector:null,autoControls:!1,startText:"Start",stopText:"Stop",autoControlsCombine:!1,autoControlsSelector:null,auto:!1,pause:4e3,autoStart:!0,autoDirection:"next",autoHover:!1,autoDelay:0,minSlides:1,maxSlides:1,moveSlides:0,slideWidth:0,onSliderLoad:function(){},onSlideBefore:function(){},onSlideAfter:function(){},onSlideNext:function(){},onSlidePrev:function(){},onSliderResize:function(){}};t.fn.bxSlider=function(n){if(0==this.length)return this;if(this.length>1)return this.each(function(){t(this).bxSlider(n)}),this;var o={},r=this;e.el=this;var a=t(window).width(),l=t(window).height(),d=function(){o.settings=t.extend({},s,n),o.settings.slideWidth=parseInt(o.settings.slideWidth),o.children=r.children(o.settings.slideSelector),o.children.length<o.settings.minSlides&&(o.settings.minSlides=o.children.length),o.children.length<o.settings.maxSlides&&(o.settings.maxSlides=o.children.length),o.settings.randomStart&&(o.settings.startSlide=Math.floor(Math.random()*o.children.length)),o.active={index:o.settings.startSlide},o.carousel=o.settings.minSlides>1||o.settings.maxSlides>1,o.carousel&&(o.settings.preloadImages="all"),o.minThreshold=o.settings.minSlides*o.settings.slideWidth+(o.settings.minSlides-1)*o.settings.slideMargin,o.maxThreshold=o.settings.maxSlides*o.settings.slideWidth+(o.settings.maxSlides-1)*o.settings.slideMargin,o.working=!1,o.controls={},o.interval=null,o.animProp="vertical"==o.settings.mode?"top":"left",o.usingCSS=o.settings.useCSS&&"fade"!=o.settings.mode&&function(){var t=document.createElement("div"),e=["WebkitPerspective","MozPerspective","OPerspective","msPerspective"];for(var i in e)if(void 0!==t.style[e[i]])return o.cssPrefix=e[i].replace("Perspective","").toLowerCase(),o.animProp="-"+o.cssPrefix+"-transform",!0;return!1}(),"vertical"==o.settings.mode&&(o.settings.maxSlides=o.settings.minSlides),r.data("origStyle",r.attr("style")),r.children(o.settings.slideSelector).each(function(){t(this).data("origStyle",t(this).attr("style"))}),c()},c=function(){r.wrap('<div class="bx-wrapper"><div class="bx-viewport"></div></div>'),o.viewport=r.parent(),o.loader=t('<div class="bx-loading" />'),o.viewport.prepend(o.loader),r.css({width:"horizontal"==o.settings.mode?100*o.children.length+215+"%":"auto",position:"relative"}),o.usingCSS&&o.settings.easing?r.css("-"+o.cssPrefix+"-transition-timing-function",o.settings.easing):o.settings.easing||(o.settings.easing="swing"),f(),o.viewport.css({width:"100%",overflow:"hidden",position:"relative"}),o.viewport.parent().css({maxWidth:p()}),o.settings.pager||o.viewport.parent().css({margin:"0 auto 0px"}),o.children.css({"float":"horizontal"==o.settings.mode?"left":"none",listStyle:"none",position:"relative"}),o.children.css("width",u()),"horizontal"==o.settings.mode&&o.settings.slideMargin>0&&o.children.css("marginRight",o.settings.slideMargin),"vertical"==o.settings.mode&&o.settings.slideMargin>0&&o.children.css("marginBottom",o.settings.slideMargin),"fade"==o.settings.mode&&(o.children.css({position:"absolute",zIndex:0,display:"none"}),o.children.eq(o.settings.startSlide).css({zIndex:o.settings.slideZIndex,display:"block"})),o.controls.el=t('<div class="bx-controls" />'),o.settings.captions&&P(),o.active.last=o.settings.startSlide==x()-1,o.settings.video&&r.fitVids();var e=o.children.eq(o.settings.startSlide);"all"==o.settings.preloadImages&&(e=o.children),o.settings.ticker?o.settings.pager=!1:(o.settings.pager&&T(),o.settings.controls&&C(),o.settings.auto&&o.settings.autoControls&&E(),(o.settings.controls||o.settings.autoControls||o.settings.pager)&&o.viewport.after(o.controls.el)),g(e,h)},g=function(e,i){var s=e.find("img, iframe").length;if(0==s)return i(),void 0;var n=0;e.find("img, iframe").each(function(){t(this).one("load",function(){++n==s&&i()}).each(function(){this.complete&&t(this).load()})})},h=function(){if(o.settings.infiniteLoop&&"fade"!=o.settings.mode&&!o.settings.ticker){var e="vertical"==o.settings.mode?o.settings.minSlides:o.settings.maxSlides,i=o.children.slice(0,e).clone().addClass("bx-clone"),s=o.children.slice(-e).clone().addClass("bx-clone");r.append(i).prepend(s)}o.loader.remove(),S(),"vertical"==o.settings.mode&&(o.settings.adaptiveHeight=!0),o.viewport.height(v()),r.redrawSlider(),o.settings.onSliderLoad(o.active.index),o.initialized=!0,o.settings.responsive&&t(window).bind("resize",Z),o.settings.auto&&o.settings.autoStart&&H(),o.settings.ticker&&L(),o.settings.pager&&q(o.settings.startSlide),o.settings.controls&&W(),o.settings.touchEnabled&&!o.settings.ticker&&O()},v=function(){var e=0,s=t();if("vertical"==o.settings.mode||o.settings.adaptiveHeight)if(o.carousel){var n=1==o.settings.moveSlides?o.active.index:o.active.index*m();for(s=o.children.eq(n),i=1;i<=o.settings.maxSlides-1;i++)s=n+i>=o.children.length?s.add(o.children.eq(i-1)):s.add(o.children.eq(n+i))}else s=o.children.eq(o.active.index);else s=o.children;return"vertical"==o.settings.mode?(s.each(function(){e+=t(this).outerHeight()}),o.settings.slideMargin>0&&(e+=o.settings.slideMargin*(o.settings.minSlides-1))):e=Math.max.apply(Math,s.map(function(){return t(this).outerHeight(!1)}).get()),e},p=function(){var t="100%";return o.settings.slideWidth>0&&(t="horizontal"==o.settings.mode?o.settings.maxSlides*o.settings.slideWidth+(o.settings.maxSlides-1)*o.settings.slideMargin:o.settings.slideWidth),t},u=function(){var t=o.settings.slideWidth,e=o.viewport.width();return 0==o.settings.slideWidth||o.settings.slideWidth>e&&!o.carousel||"vertical"==o.settings.mode?t=e:o.settings.maxSlides>1&&"horizontal"==o.settings.mode&&(e>o.maxThreshold||e<o.minThreshold&&(t=(e-o.settings.slideMargin*(o.settings.minSlides-1))/o.settings.minSlides)),t},f=function(){var t=1;if("horizontal"==o.settings.mode&&o.settings.slideWidth>0)if(o.viewport.width()<o.minThreshold)t=o.settings.minSlides;else if(o.viewport.width()>o.maxThreshold)t=o.settings.maxSlides;else{var e=o.children.first().width();t=Math.floor(o.viewport.width()/e)}else"vertical"==o.settings.mode&&(t=o.settings.minSlides);return t},x=function(){var t=0;if(o.settings.moveSlides>0)if(o.settings.infiniteLoop)t=o.children.length/m();else for(var e=0,i=0;e<o.children.length;)++t,e=i+f(),i+=o.settings.moveSlides<=f()?o.settings.moveSlides:f();else t=Math.ceil(o.children.length/f());return t},m=function(){return o.settings.moveSlides>0&&o.settings.moveSlides<=f()?o.settings.moveSlides:f()},S=function(){if(o.children.length>o.settings.maxSlides&&o.active.last&&!o.settings.infiniteLoop){if("horizontal"==o.settings.mode){var t=o.children.last(),e=t.position();b(-(e.left-(o.viewport.width()-t.width())),"reset",0)}else if("vertical"==o.settings.mode){var i=o.children.length-o.settings.minSlides,e=o.children.eq(i).position();b(-e.top,"reset",0)}}else{var e=o.children.eq(o.active.index*m()).position();o.active.index==x()-1&&(o.active.last=!0),void 0!=e&&("horizontal"==o.settings.mode?b(-e.left,"reset",0):"vertical"==o.settings.mode&&b(-e.top,"reset",0))}},b=function(t,e,i,s){if(o.usingCSS){var n="vertical"==o.settings.mode?"translate3d(0, "+t+"px, 0)":"translate3d("+t+"px, 0, 0)";r.css("-"+o.cssPrefix+"-transition-duration",i/1e3+"s"),"slide"==e?(r.css(o.animProp,n),r.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",function(){r.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd"),D()})):"reset"==e?r.css(o.animProp,n):"ticker"==e&&(r.css("-"+o.cssPrefix+"-transition-timing-function","linear"),r.css(o.animProp,n),r.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",function(){r.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd"),b(s.resetValue,"reset",0),N()}))}else{var a={};a[o.animProp]=t,"slide"==e?r.animate(a,i,o.settings.easing,function(){D()}):"reset"==e?r.css(o.animProp,t):"ticker"==e&&r.animate(a,speed,"linear",function(){b(s.resetValue,"reset",0),N()})}},w=function(){for(var e="",i=x(),s=0;i>s;s++){var n="";o.settings.buildPager&&t.isFunction(o.settings.buildPager)?(n=o.settings.buildPager(s),o.pagerEl.addClass("bx-custom-pager")):(n=s+1,o.pagerEl.addClass("bx-default-pager")),e+='<div class="bx-pager-item"><a href="" data-slide-index="'+s+'" class="bx-pager-link">'+n+"</a></div>"}o.pagerEl.html(e)},T=function(){o.settings.pagerCustom?o.pagerEl=t(o.settings.pagerCustom):(o.pagerEl=t('<div class="bx-pager" />'),o.settings.pagerSelector?t(o.settings.pagerSelector).html(o.pagerEl):o.controls.el.addClass("bx-has-pager").append(o.pagerEl),w()),o.pagerEl.on("click","a",I)},C=function(){o.controls.next=t('<a class="bx-next" href="">'+o.settings.nextText+"</a>"),o.controls.prev=t('<a class="bx-prev" href="">'+o.settings.prevText+"</a>"),o.controls.next.bind("click",y),o.controls.prev.bind("click",z),o.settings.nextSelector&&t(o.settings.nextSelector).append(o.controls.next),o.settings.prevSelector&&t(o.settings.prevSelector).append(o.controls.prev),o.settings.nextSelector||o.settings.prevSelector||(o.controls.directionEl=t('<div class="bx-controls-direction" />'),o.controls.directionEl.append(o.controls.prev).append(o.controls.next),o.controls.el.addClass("bx-has-controls-direction").append(o.controls.directionEl))},E=function(){o.controls.start=t('<div class="bx-controls-auto-item"><a class="bx-start" href="">'+o.settings.startText+"</a></div>"),o.controls.stop=t('<div class="bx-controls-auto-item"><a class="bx-stop" href="">'+o.settings.stopText+"</a></div>"),o.controls.autoEl=t('<div class="bx-controls-auto" />'),o.controls.autoEl.on("click",".bx-start",k),o.controls.autoEl.on("click",".bx-stop",M),o.settings.autoControlsCombine?o.controls.autoEl.append(o.controls.start):o.controls.autoEl.append(o.controls.start).append(o.controls.stop),o.settings.autoControlsSelector?t(o.settings.autoControlsSelector).html(o.controls.autoEl):o.controls.el.addClass("bx-has-controls-auto").append(o.controls.autoEl),A(o.settings.autoStart?"stop":"start")},P=function(){o.children.each(function(){var e=t(this).find("img:first").attr("title");void 0!=e&&(""+e).length&&t(this).append('<div class="bx-caption"><span>'+e+"</span></div>")})},y=function(t){o.settings.auto&&r.stopAuto(),r.goToNextSlide(),t.preventDefault()},z=function(t){o.settings.auto&&r.stopAuto(),r.goToPrevSlide(),t.preventDefault()},k=function(t){r.startAuto(),t.preventDefault()},M=function(t){r.stopAuto(),t.preventDefault()},I=function(e){o.settings.auto&&r.stopAuto();var i=t(e.currentTarget),s=parseInt(i.attr("data-slide-index"));s!=o.active.index&&r.goToSlide(s),e.preventDefault()},q=function(e){var i=o.children.length;return"short"==o.settings.pagerType?(o.settings.maxSlides>1&&(i=Math.ceil(o.children.length/o.settings.maxSlides)),o.pagerEl.html(e+1+o.settings.pagerShortSeparator+i),void 0):(o.pagerEl.find("a").removeClass("active"),o.pagerEl.each(function(i,s){t(s).find("a").eq(e).addClass("active")}),void 0)},D=function(){if(o.settings.infiniteLoop){var t="";0==o.active.index?t=o.children.eq(0).position():o.active.index==x()-1&&o.carousel?t=o.children.eq((x()-1)*m()).position():o.active.index==o.children.length-1&&(t=o.children.eq(o.children.length-1).position()),t&&("horizontal"==o.settings.mode?b(-t.left,"reset",0):"vertical"==o.settings.mode&&b(-t.top,"reset",0))}o.working=!1,o.settings.onSlideAfter(o.children.eq(o.active.index),o.oldIndex,o.active.index)},A=function(t){o.settings.autoControlsCombine?o.controls.autoEl.html(o.controls[t]):(o.controls.autoEl.find("a").removeClass("active"),o.controls.autoEl.find("a:not(.bx-"+t+")").addClass("active"))},W=function(){1==x()?(o.controls.prev.addClass("disabled"),o.controls.next.addClass("disabled")):!o.settings.infiniteLoop&&o.settings.hideControlOnEnd&&(0==o.active.index?(o.controls.prev.addClass("disabled"),o.controls.next.removeClass("disabled")):o.active.index==x()-1?(o.controls.next.addClass("disabled"),o.controls.prev.removeClass("disabled")):(o.controls.prev.removeClass("disabled"),o.controls.next.removeClass("disabled")))},H=function(){o.settings.autoDelay>0?setTimeout(r.startAuto,o.settings.autoDelay):r.startAuto(),o.settings.autoHover&&r.hover(function(){o.interval&&(r.stopAuto(!0),o.autoPaused=!0)},function(){o.autoPaused&&(r.startAuto(!0),o.autoPaused=null)})},L=function(){var e=0;if("next"==o.settings.autoDirection)r.append(o.children.clone().addClass("bx-clone"));else{r.prepend(o.children.clone().addClass("bx-clone"));var i=o.children.first().position();e="horizontal"==o.settings.mode?-i.left:-i.top}b(e,"reset",0),o.settings.pager=!1,o.settings.controls=!1,o.settings.autoControls=!1,o.settings.tickerHover&&!o.usingCSS&&o.viewport.hover(function(){r.stop()},function(){var e=0;o.children.each(function(){e+="horizontal"==o.settings.mode?t(this).outerWidth(!0):t(this).outerHeight(!0)});var i=o.settings.speed/e,s="horizontal"==o.settings.mode?"left":"top",n=i*(e-Math.abs(parseInt(r.css(s))));N(n)}),N()},N=function(t){speed=t?t:o.settings.speed;var e={left:0,top:0},i={left:0,top:0};"next"==o.settings.autoDirection?e=r.find(".bx-clone").first().position():i=o.children.first().position();var s="horizontal"==o.settings.mode?-e.left:-e.top,n="horizontal"==o.settings.mode?-i.left:-i.top,a={resetValue:n};b(s,"ticker",speed,a)},O=function(){o.touch={start:{x:0,y:0},end:{x:0,y:0}},o.viewport.bind("touchstart",X)},X=function(t){if(o.working)t.preventDefault();else{o.touch.originalPos=r.position();var e=t.originalEvent;o.touch.start.x=e.changedTouches[0].pageX,o.touch.start.y=e.changedTouches[0].pageY,o.viewport.bind("touchmove",Y),o.viewport.bind("touchend",V)}},Y=function(t){var e=t.originalEvent,i=Math.abs(e.changedTouches[0].pageX-o.touch.start.x),s=Math.abs(e.changedTouches[0].pageY-o.touch.start.y);if(3*i>s&&o.settings.preventDefaultSwipeX?t.preventDefault():3*s>i&&o.settings.preventDefaultSwipeY&&t.preventDefault(),"fade"!=o.settings.mode&&o.settings.oneToOneTouch){var n=0;if("horizontal"==o.settings.mode){var r=e.changedTouches[0].pageX-o.touch.start.x;n=o.touch.originalPos.left+r}else{var r=e.changedTouches[0].pageY-o.touch.start.y;n=o.touch.originalPos.top+r}b(n,"reset",0)}},V=function(t){o.viewport.unbind("touchmove",Y);var e=t.originalEvent,i=0;if(o.touch.end.x=e.changedTouches[0].pageX,o.touch.end.y=e.changedTouches[0].pageY,"fade"==o.settings.mode){var s=Math.abs(o.touch.start.x-o.touch.end.x);s>=o.settings.swipeThreshold&&(o.touch.start.x>o.touch.end.x?r.goToNextSlide():r.goToPrevSlide(),r.stopAuto())}else{var s=0;"horizontal"==o.settings.mode?(s=o.touch.end.x-o.touch.start.x,i=o.touch.originalPos.left):(s=o.touch.end.y-o.touch.start.y,i=o.touch.originalPos.top),!o.settings.infiniteLoop&&(0==o.active.index&&s>0||o.active.last&&0>s)?b(i,"reset",200):Math.abs(s)>=o.settings.swipeThreshold?(0>s?r.goToNextSlide():r.goToPrevSlide(),r.stopAuto()):b(i,"reset",200)}o.viewport.unbind("touchend",V)},Z=function(){var e=t(window).width(),i=t(window).height();(a!=e||l!=i)&&(a=e,l=i,r.redrawSlider(),o.settings.onSliderResize.call(r,o.active.index))};return r.goToSlide=function(e,i){if(!o.working&&o.active.index!=e)if(o.working=!0,o.oldIndex=o.active.index,o.active.index=0>e?x()-1:e>=x()?0:e,o.settings.onSlideBefore(o.children.eq(o.active.index),o.oldIndex,o.active.index),"next"==i?o.settings.onSlideNext(o.children.eq(o.active.index),o.oldIndex,o.active.index):"prev"==i&&o.settings.onSlidePrev(o.children.eq(o.active.index),o.oldIndex,o.active.index),o.active.last=o.active.index>=x()-1,o.settings.pager&&q(o.active.index),o.settings.controls&&W(),"fade"==o.settings.mode)o.settings.adaptiveHeight&&o.viewport.height()!=v()&&o.viewport.animate({height:v()},o.settings.adaptiveHeightSpeed),o.children.filter(":visible").fadeOut(o.settings.speed).css({zIndex:0}),o.children.eq(o.active.index).css("zIndex",o.settings.slideZIndex+1).fadeIn(o.settings.speed,function(){t(this).css("zIndex",o.settings.slideZIndex),D()});else{o.settings.adaptiveHeight&&o.viewport.height()!=v()&&o.viewport.animate({height:v()},o.settings.adaptiveHeightSpeed);var s=0,n={left:0,top:0};if(!o.settings.infiniteLoop&&o.carousel&&o.active.last)if("horizontal"==o.settings.mode){var a=o.children.eq(o.children.length-1);n=a.position(),s=o.viewport.width()-a.outerWidth()}else{var l=o.children.length-o.settings.minSlides;n=o.children.eq(l).position()}else if(o.carousel&&o.active.last&&"prev"==i){var d=1==o.settings.moveSlides?o.settings.maxSlides-m():(x()-1)*m()-(o.children.length-o.settings.maxSlides),a=r.children(".bx-clone").eq(d);n=a.position()}else if("next"==i&&0==o.active.index)n=r.find("> .bx-clone").eq(o.settings.maxSlides).position(),o.active.last=!1;else if(e>=0){var c=e*m();n=o.children.eq(c).position()}if("undefined"!=typeof n){var g="horizontal"==o.settings.mode?-(n.left-s):-n.top;b(g,"slide",o.settings.speed)}}},r.goToNextSlide=function(){if(o.settings.infiniteLoop||!o.active.last){var t=parseInt(o.active.index)+1;r.goToSlide(t,"next")}},r.goToPrevSlide=function(){if(o.settings.infiniteLoop||0!=o.active.index){var t=parseInt(o.active.index)-1;r.goToSlide(t,"prev")}},r.startAuto=function(t){o.interval||(o.interval=setInterval(function(){"next"==o.settings.autoDirection?r.goToNextSlide():r.goToPrevSlide()},o.settings.pause),o.settings.autoControls&&1!=t&&A("stop"))},r.stopAuto=function(t){o.interval&&(clearInterval(o.interval),o.interval=null,o.settings.autoControls&&1!=t&&A("start"))},r.getCurrentSlide=function(){return o.active.index},r.getCurrentSlideElement=function(){return o.children.eq(o.active.index)},r.getSlideCount=function(){return o.children.length},r.redrawSlider=function(){o.children.add(r.find(".bx-clone")).outerWidth(u()),o.viewport.css("height",v()),o.settings.ticker||S(),o.active.last&&(o.active.index=x()-1),o.active.index>=x()&&(o.active.last=!0),o.settings.pager&&!o.settings.pagerCustom&&(w(),q(o.active.index))},r.destroySlider=function(){o.initialized&&(o.initialized=!1,t(".bx-clone",this).remove(),o.children.each(function(){void 0!=t(this).data("origStyle")?t(this).attr("style",t(this).data("origStyle")):t(this).removeAttr("style")}),void 0!=t(this).data("origStyle")?this.attr("style",t(this).data("origStyle")):t(this).removeAttr("style"),t(this).unwrap().unwrap(),o.controls.el&&o.controls.el.remove(),o.controls.next&&o.controls.next.remove(),o.controls.prev&&o.controls.prev.remove(),o.pagerEl&&o.settings.controls&&o.pagerEl.remove(),t(".bx-caption",this).remove(),o.controls.autoEl&&o.controls.autoEl.remove(),clearInterval(o.interval),o.settings.responsive&&t(window).unbind("resize",Z))},r.reloadSlider=function(t){void 0!=t&&(n=t),r.destroySlider(),d()},d(),this}}(jQuery);
 //# sourceMappingURL=app.js.map

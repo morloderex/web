@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Libraries;
+namespace App\Libraries\Currency;
 
 /**
 * Handles Copper to silver & gold ratio
@@ -26,6 +26,15 @@ class IngameCurrencyConverter
 		return money_format('%.2n', $money);
 	}
 
+	public function getMoney()
+	{
+		$copper = $this->getCopper();
+		$silver = $this->getSilver();
+		$gold 	= $this->getGold();
+
+		return "$gold Gold, $silver Silver, $copper Copper.";
+	}
+
 	public function getCopper() : int
 	{
 		$copper = $this->copper;
@@ -48,14 +57,5 @@ class IngameCurrencyConverter
 		$currencyRates = $this->currencyRates;
 
 		return $copper / $currencyRates['10g'] % $currencyRates['1s'];
-	}
-
-	public function getMoney()
-	{
-		$copper = $this->getCopper();
-		$silver = $this->getSilver();
-		$gold 	= $this->getGold();
-
-		return "$gold Gold, $silver Silver, $copper Copper.";
 	}
 }

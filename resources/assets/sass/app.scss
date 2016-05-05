@@ -2,8 +2,18 @@
 @import url(//fonts.googleapis.com/css?family=Lato:400,900);
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css);
 
-@import "components/modern-business.scss";
+@import "components/modern-business";
 @import "components/flatty";
+@import "components/heroic-features";
+
 @import "components/cards/product";
 @import "components/carousels/fade-quote-carousel";
+
 @import "components/contact";
+
+@import "components/home";
+
+@import "components/animate";
+@import "components/bxslider";
+@import "components/timer/style";
+@import "components/timer/responsive";

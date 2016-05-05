@@ -64,6 +64,8 @@ class User extends Authenticatable
 
     public Static function boot() {
 
+        parent::boot();
+        
         static::deleting(function($user){
             return $user->Accounts()->each(function($account){
                 return $account->destroy();

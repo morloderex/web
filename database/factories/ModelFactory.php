@@ -1,19 +1,19 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\Gallery;
+use App\Models\Information;
+use App\Models\Location;
+use App\Models\Photo;
+use App\Models\Post;
+use App\Models\Tag;
+use App\Models\Taggable;
+use App\Models\Testimonial;
+use App\Models\TrinityCore\Character;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Eloquent\Model,
-    App\Models\User,
-	App\Models\Category,
-	App\Models\Post,
-	App\Models\Comment,
-	App\Models\Location,
-	App\Models\Photo,
-	App\Models\Tag,
-	App\Models\Taggable,
-	App\Models\Testimonial,
-	App\Models\Information,
-    App\Models\Gallery;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +29,30 @@ use Illuminate\Database\Eloquent\Model,
 $factory->define(User::class, function (Faker\Generator $faker) {
     return [
     	'active'		 =>	$faker->boolean($chanceOfGettingTrue = 90),
-        'name' 			 => $faker->name,
+        'name' 			 => $faker->firstName,
         'email' 		 => $faker->safeEmail,
         'password' 		 => Hash::make(str_random(10)),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(Character::class, function(Faker\Generator $faker){
+    return [
+        'guid'          =>  $faker->numberBetween(1,2147483647),
+        'account'       =>  \App\Models\TrinityCore\Account::random()->id,
+        'name'          =>  $faker->firstName,
+        'race'          =>  $faker->numberBetween(1,22),
+        'class'         =>  $faker->numberBetween(1,11),
+        'gender'        =>  $faker->numberBetween(0,1),
+        'level'         =>  $faker->numberBetween(1,255),
+        'money'         =>  $faker->numberBetween(100,1000),
+        'position_x'    =>  $faker->numberBetween(10,2000),
+        'position_y'    =>  $faker->numberBetween(10,2000),
+        'position_z'    =>  $faker->numberBetween(10,200),
+        'orientation'   =>  $faker->randomFloat(),
+        'map'           =>  $faker->numberBetween(1,2),
+        'zone'          =>  $faker->numberBetween(1,20),
+        'cinematic'     =>  $faker->boolean
     ];
 });
 

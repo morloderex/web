@@ -8,6 +8,8 @@ use App\Models\TrinityCore\Account;
 use App\Models\TrinityCore\Character;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Laracasts\Flash\Flash;
 
 class CharacterController extends Controller
 {
@@ -41,7 +43,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        return view('armory.character.create');
+        return view('armory.characters.create');
     }
 
     /**
@@ -55,7 +57,21 @@ class CharacterController extends Controller
         $attributes = $request->except('_token');
         $account = $this->findAccount($attributes);
 
+        $this->authorize('store', $account);
+        
         return $account->characters()->save(new Character($attributes)); 
+    }
+
+    protected function findAccount(array $attributes)
+    {
+        $account = $this->account;
+        if ($account instanceof Collection) {
+            $account = array_key_exists('accountID', $attributes) ?
+                Account::find($attributes['accountID'])
+                :
+                $account->first();
+        }
+        return $account;
     }
 
     /**
@@ -66,7 +82,7 @@ class CharacterController extends Controller
      */
     public function show(Character $character)
     {
-        return view('armory.character.show', compact('character'));
+        return view('armory.characters.show', compact('character'));
     }
 
     /**
@@ -77,7 +93,7 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        return view('armory.character.edit', compact('character'));
+        return view('armory.characters.edit', compact('character'));
     }
 
     /**
@@ -91,7 +107,9 @@ class CharacterController extends Controller
     {
         $this->authorize('update', $character);
 
-        $character = $character->update($request->except('_token'));
+        $attributes = $request->except('_token');
+
+        $character = $character->update($attributes);
         $account = $this->findAccount($attributes);
 
         $updated = $account->Characters()->save($character);
@@ -110,7 +128,7 @@ class CharacterController extends Controller
     {
         $this->authorize('destroy', $character);
 
-        $deleted = $character->destroy();
+        $deleted = $character->delete();
 
         $redirect = redirect()->back();
         return $deleted ? $redirect->withSuccess('Character deleted.') : $redirect->withErrors('Something went wrong..');
@@ -144,17 +162,5 @@ class CharacterController extends Controller
         }
 
         return redirect()->back();
-    }
-
-    protected function findAccount(array $attributes) {
-        $account = $this->account;
-        if($account instanceof Collection)
-        {
-            $account = array_key_exists('accountID', $attributes) ? 
-                Account::find($attributes['accountID']) 
-                :
-                $account->first();
-        }
-        return $account;
     }
 }

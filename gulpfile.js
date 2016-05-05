@@ -29,7 +29,7 @@ elixir(function(mix) {
 		
 		.copy('node_modules/lity/dist/lity.css', 'resources/assets/css/lity.css')
     	
-    	.scripts(['*.js'], 'public/js/app.js')
+    	.scripts(['*.js', 'timer/*.js'], 'public/js/app.js')
     	.styles(['*.css'], 'public/css/main.css')
     	.sass('app.scss')
     	.version(assets)

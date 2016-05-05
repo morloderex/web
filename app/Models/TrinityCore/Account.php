@@ -4,10 +4,13 @@ namespace App\Models\TrinityCore;
 
 use App\Libraries\Hashing\TrinityCoreSha1Hasher;
 use App\Models\User;
+use App\Scopes\Traits\scopeRandom;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 class Account extends Model
 {
+    use scopeRandom;
     /**
      * Indicates if the model should be timestamped.
      *
@@ -53,6 +56,11 @@ class Account extends Model
         'password', 'remember_token', 'sha_pass_hash',
     ];
 
+    protected $dates = [
+        'joindate',
+        'last_login'
+    ];
+
     /**
      * The "booting" method of the model.
      *
@@ -60,11 +68,29 @@ class Account extends Model
      */
     public static function boot()
     {
+        parent::boot();
+
         static::saving(function($account){
             if($account->getAttribute('password'))
                 unset($account->password);
         });
-        parent::boot();
+
+
+            static::saved(function($account){
+                if (app()->environment('local', 'staging', 'development')) {
+                    $seededCharacters = factory(Character::class)->times(10)->make();
+
+                    $relation = $account->Characters();
+                    $seededCharacters->each(function ($character) use ($relation) {
+                        if ($character instanceof Collection) {
+                            $relation->saveMany($character);
+                        } else {
+                            $relation->save($character);
+                        }
+                    });
+                }
+            });
+
     }
 
     /**
@@ -84,7 +110,7 @@ class Account extends Model
      */
     public function Characters()
     {
-        return $this->hasMany(Character::class, 'guid', 'account');
+        return $this->hasMany(Character::class, 'account', 'id');
     }
 
     /**
@@ -129,7 +155,7 @@ class Account extends Model
         $this->attributes['sha_pass_hash'] = $this->getEncryptedPassword($password);
         $this->attributes['password'] = $password;
     }
-
+    
     /**
      * Encrypts the given password
      * @param  string $password

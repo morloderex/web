@@ -12,13 +12,20 @@
 |
 */
 
-Route::get('/', 'WelcomeController@getIndex');
+Route::get('/', function () {
+    return view('timer');
+});
+
+Route::get('/welcome', 'WelcomeController@getIndex');
 
 Route::auth();
 
 Route::get('faq', 'FaqController@index');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', [
+    'uses' => 'HomeController@index',
+    'as' => 'home'
+]);
 
 Route::resource('user', UserController::class);
 
