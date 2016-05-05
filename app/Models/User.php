@@ -74,7 +74,7 @@ class User extends Authenticatable
         
         static::deleting(function($user){
             return $user->Accounts()->each(function($account){
-                return $account->destroy();
+                return $account->delete();
             });
         });
 
