@@ -56,6 +56,11 @@ class User extends Authenticatable
      */
     protected $accountCollection;
 
+    /**
+     * @var Collection
+     */
+    protected $resolvedAccountsCollection;
+
     public function __construct(array $attributes = []) {
         parent::__construct($attributes);
 
@@ -131,7 +136,7 @@ class User extends Authenticatable
     protected function mapMyAccounts()
     {
         $accounts = Account::whereEmail($this->email)->get();
-        $this->accountCollection->push($accounts);
+        $this->resolvedAccountsCollection->push($accounts);
 
         return $this;
     }
@@ -156,13 +161,27 @@ class User extends Authenticatable
     protected function saveAccounts()
     {
         $accounts = $this->accountCollection;
+        $resolvedAccounts = $this->resolvedAccountsCollection;
 
         $relation = $this->Accounts();
+
+        // First, save the newly created accounts
         $accounts->each(function ($account) use ($relation) {
             if ($account instanceof Collection) {
                 $relation->saveMany($account);
             } else {
                 $relation->save($account);
+            }
+        });
+
+        // Then associate the ones that already existed
+        $resolvedAccounts->each(function($account) use ($relation) {
+            if ($account instanceof Collection) {
+                $account->each(function($child) use($relation) {
+                   $relation->associate($child)->save();
+                });
+            } else {
+                $relation->associate($account)->save();
             }
         });
     }
