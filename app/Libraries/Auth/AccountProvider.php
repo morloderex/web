@@ -15,7 +15,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Foundation\Auth\User;
 
-class UserProvider extends EloquentUserProvider
+class AccountProvider extends EloquentUserProvider
 {
     public function __construct(Hasher $hasher, Authenticatable $model)
     {

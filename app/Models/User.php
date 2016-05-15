@@ -7,11 +7,11 @@ use App\Scopes\Traits\scopeRandom;
 use App\Traits\Model\hasInformation;
 use App\Traits\Model\hasPhotos;
 use App\Traits\Model\Locatable;
-use Hash;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Hash;
 use Mpociot\Teamwork\Traits\UserHasTeams;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -113,18 +113,18 @@ class User extends Authenticatable
         }
 
         return $accounts->each(function ($account) {
-            $account->username = $this->name;
-            $account->email = $this->email;
-            $account->password = $this->password;
+            $account->username  = $this->name;
+            $account->email     = $this->email;
+            $account->password  = $this->password;
         });
     }
 
     protected function createAccount()
     {
         $attributes = [
-            'username' => $this->name,
-            'email' => $this->email,
-            'password' => $this->password
+            'username'  => $this->name,
+            'email'     => $this->email,
+            'password'  => $this->password
         ];
         return new Account($attributes);
     }
@@ -144,8 +144,12 @@ class User extends Authenticatable
 
     protected function encryptPassword()
     {
+        // grab unencrypted password
         $password = $this->password;
+        // encrypt and override
         $this->password = Hash::make($password);
+
+        //$this->password = bcrypt($password);
 
         return $this;
     }

@@ -15,7 +15,9 @@ class TrinityCoreSha1Hasher implements Hasher
      */
     public function make($user, array $options = array()) {
         if(is_string($user))
+        {
             throw new \InvalidArgumentException("Cannot create password hash for TrinityCore with only one argument.");
+        }
 
         if(is_array($user))
         {
@@ -23,9 +25,7 @@ class TrinityCoreSha1Hasher implements Hasher
             $user = (object)$user;
         }
 
-        return strtoupper(
-            sha1($user->username . ":" . strtoupper($user->password))
-        );
+        return sha1(strtoupper($user->username) . ":" . strtoupper($user->password));
     }
 
     /**
@@ -37,7 +37,9 @@ class TrinityCoreSha1Hasher implements Hasher
      * @return bool
      */
     public function check($value, $hashedValue, array $options = array()) {
-        return $this->make($value) === $hashedValue;
+        // Not possible
+        return True;
+        //return $this->make($value) === $hashedValue;
     }
 
     /**

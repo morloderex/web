@@ -125,7 +125,7 @@ class AuthController extends Controller
         return User::create([
             // Users created are by default not active
             // eg. require email confirmation or Administrative intervention.
-            'active'    => Config('auth.user--active'),
+            'active'    => config('auth.user--active'),
             'name'      => $data['name'],
             'email'     => $data['email'],
             'password'  => $data['password'],
