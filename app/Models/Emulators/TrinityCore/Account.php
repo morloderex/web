@@ -177,7 +177,7 @@ class Account extends AbstractAccount
      */
     public function setUsernameAttribute(string $username)
     {
-        $this->attributes['username'] = strtoupper($username);
+        $this->attributes['username'] = strtoupper(trim($username));
     }
 
     /**
