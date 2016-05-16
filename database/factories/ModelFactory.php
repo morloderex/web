@@ -10,7 +10,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Taggable;
 use App\Models\Testimonial;
-use App\Models\TrinityCore\Character;
+use App\Models\Emulators\TrinityCore\Character;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Hash;
@@ -39,7 +39,7 @@ $factory->define(User::class, function (Faker\Generator $faker) {
 $factory->define(Character::class, function(Faker\Generator $faker){
     return [
         'guid'          =>  $faker->numberBetween(1,2147483647),
-        'account'       =>  \App\Models\TrinityCore\Account::random()->id,
+        'account'       =>  \App\Models\Emulators\TrinityCore\Account::random()->id,
         'name'          =>  $faker->firstName,
         'race'          =>  $faker->numberBetween(1,22),
         'class'         =>  $faker->numberBetween(1,11),

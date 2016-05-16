@@ -60,6 +60,8 @@ class User extends Authenticatable
 
     protected function setPasswordAttribute(string $password)
     {
+        // store original
+        $this->original['password'] = $password;
         // encrypt
         $this->attributes['password'] = Hash::make($password);
 
