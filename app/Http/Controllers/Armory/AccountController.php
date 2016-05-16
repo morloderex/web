@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Armory;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use App\Models\TrinityCore\Account;
+use App\Models\Emulators\TrinityCore\Account;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TrinityCore\Account;
-use App\Models\TrinityCore\Ticket;
+use App\Models\Emulators\TrinityCore\Account;
+use App\Models\Emulators\TrinityCore\Ticket;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -88,7 +88,7 @@ class TicketController extends Controller
         $this->authorize('update', $ticket);
 
         $ticket = $ticket->update($request->except('_token'));
-        $account = $this->findAccount($attributes);
+        $account = $this->findAccount($request->all());
 
         $updated = $account->Tickets()->save($ticket);
 
@@ -116,7 +116,7 @@ class TicketController extends Controller
         $account = $this->account;
         if($account instanceof Collection)
         {
-            $account = array_key_exists('accountID', $attributes) ? Account::find($attributes['accountID']) ? $account->first();
+            $account = array_key_exists('accountID', $attributes) ? Account::find($attributes['accountID']) : $account->first();
         }
         return $account;
     }

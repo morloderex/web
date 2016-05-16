@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jonas
- * Date: 28-02-2016
- * Time: 14:48
- */
 
 namespace App\Libraries\Auth;
 

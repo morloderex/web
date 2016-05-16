@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\TrinityCore;
+namespace App\Models\Emulators\TrinityCore;
 
 
 use App\Traits\Model\RecordsActivity;

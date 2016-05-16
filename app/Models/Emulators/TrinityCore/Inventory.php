@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\TrinityCore;
+namespace App\Models\Emulators\TrinityCore;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\belongsTo;

@@ -156,6 +156,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\APIServiceProvider::class,
+        App\Providers\AccountServiceProvider::class,
 
         /**
          * 3rd party

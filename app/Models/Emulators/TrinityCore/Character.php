@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\TrinityCore;
+namespace App\Models\Emulators\TrinityCore;
 
 use App\Libraries\Currency\IngameCurrencyConverter as CurrencyConverter;
 use App\Traits\Model\hasPhotos;

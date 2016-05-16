@@ -4,8 +4,8 @@ namespace App\Events\Role;
 
 use App\Events\Event;
 
-use App\Models\TrinityCore\Account,
-    App\Models\TrinityCore\Role;
+use App\Models\Emulators\TrinityCore\Account,
+    App\Models\Emulators\TrinityCore\Role;
 
 class Revoked extends Event
 {

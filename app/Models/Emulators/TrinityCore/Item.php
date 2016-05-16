@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\TrinityCore;
+namespace App\Models\Emulators\TrinityCore;
 
 use App\Libraries\Game\TrinityCore\Item\ItemClass;
 use Illuminate\Database\Eloquent\Model;

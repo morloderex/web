@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Armory;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use App\Models\TrinityCore\Account;
-use App\Models\TrinityCore\Character;
+use App\Models\Emulators\TrinityCore\Account;
+use App\Models\Emulators\TrinityCore\Character;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;

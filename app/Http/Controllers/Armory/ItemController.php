@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Armory;
 
-use App\Models\TrinityCore\Account;
-use App\Models\TrinityCore\Item;
+use App\Models\Emulators\TrinityCore\Account;
+use App\Models\Emulators\TrinityCore\Item;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Contracts\Auth\Guard;

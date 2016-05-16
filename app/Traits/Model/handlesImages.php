@@ -47,7 +47,7 @@ trait handlesImages
     /**
      * @inheritdoc
      */
-    public static function boot()
+    public static function bootHandlesImages()
     {
         static::saving(function($model){
             $model->createImage($model);

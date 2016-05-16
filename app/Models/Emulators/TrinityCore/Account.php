@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\TrinityCore;
+namespace App\Models\Emulators\TrinityCore;
 
 use App\Libraries\Hashing\TrinityCoreSha1Hasher;
 use App\Models\User;
