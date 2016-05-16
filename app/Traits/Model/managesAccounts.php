@@ -15,6 +15,20 @@ trait managesAccounts
      */
     protected $accountManager;
 
+
+    /**
+     * Works, but isn't elegant at all...
+     *
+     * overrides the eloquent bootIfNotBooted() method..
+     */
+    protected function bootIfNotBooted()
+    {
+        parent::bootIfNotBooted();
+
+        $manager = app(AccountManager::class);
+        $this->loadAccountManager($manager,$this);
+    }
+
     /**
      * Boot the trait
      * 
@@ -25,11 +39,16 @@ trait managesAccounts
         /**
          * Create event listener hooks.
          */
+
+        /**
+         * Doesn't work
+
         static::booted(function($model){
-            $manager = app(AccountManagerContract::class);
+            $manager = app(AccountManager::class);
             $model->loadAccountManager($manager, $model);
         });
-        
+        **/
+
         static::deleting(function($model){
             $model->accountManager->destroyAccounts();
         });
@@ -37,7 +56,11 @@ trait managesAccounts
         static::updating(function($model) {
             $model->accountManager->fillAccounts();
         });
-
+        
+        static::updated(function($model){
+            $model->accountManager->saveAccounts();
+        });
+        
         static::creating(function($model){
             $model->accountManager->mapAccountsRelatedByEmail();
             $model->accountManager->fillAccounts();
@@ -52,5 +75,7 @@ trait managesAccounts
     {
         $manager->setUser($model);
         $this->accountManager = $manager;
+        
+        return $this;
     }
 }

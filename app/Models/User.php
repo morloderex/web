@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Libraries\Auth\AccountManager;
 use App\Models\Emulators\TrinityCore\Account;
 use App\Scopes\Traits\scopeRandom;
 use App\Traits\Model\hasInformation;
@@ -51,7 +52,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
 
     public function posts() : HasMany
     {
