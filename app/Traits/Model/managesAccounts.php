@@ -25,7 +25,9 @@ trait managesAccounts
     {
         parent::bootIfNotBooted();
 
-        $manager = app(AccountManager::class);
+        //$manager = app(AccountManagerContract::class);
+
+        $manager = new AccountManager;
         $this->loadAccountManager($manager,$this);
     }
 
@@ -54,11 +56,17 @@ trait managesAccounts
         });
 
         static::updating(function($model) {
-            $model->accountManager->fillAccounts();
+            if($model->validUpdate())
+            {
+                $model->accountManager->fillAccounts();
+            }
         });
         
         static::updated(function($model){
-            $model->accountManager->saveAccounts();
+            if($model->validUpdate())
+            {
+                $model->accountManager->saveAccounts();
+            }
         });
         
         static::creating(function($model){
@@ -69,6 +77,25 @@ trait managesAccounts
         static::created(function ($model) {
             $model->accountManager->saveAccounts();
         });
+    }
+
+    /**
+     * @TODO: Improve.. :D
+     *
+     * @return bool
+     */
+    protected function validUpdate()
+    {
+        // get whats changed,
+        // because models likes to get dirty.. derp.
+        $changed = $this->getDirty();
+
+        // if whats changed, is a token or an updated timestamp, skip.
+        $invalidUpdate = (array_key_exists('remember_token', $changed) || array_key_exists('updated_at',$changed));
+
+        // Not an invalid Update..
+        // much smell, such code.. yes.
+        return !$invalidUpdate;
     }
 
     public function loadAccountManager(AccountManager $manager, Authenticatable $model)

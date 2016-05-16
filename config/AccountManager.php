@@ -4,7 +4,9 @@
     'emulator'  =>  [
         'core'  =>  [
             'supported' =>  [
-                'TrinityCore'
+                'TrinityCore'   =>  [
+                    'model'     =>  \App\Models\Emulators\TrinityCore\Account::class
+                ]
             ]
         ],
         'account'   =>  [

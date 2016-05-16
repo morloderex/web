@@ -3,6 +3,7 @@
 namespace App\Libraries\Auth;
 use App\Contracts\Emulators\AccountContract;
 use App\Contracts\Auth\AccountManagerContract as Contract;
+use App\Models\Emulators\AbstractAccount;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Collection;
@@ -31,29 +32,31 @@ class AccountManager implements Contract
 
     public function __construct(array $options = [])
     {
+        $this->accounts = new Collection;
+
         if(empty($options))
         {
             $options = config('AccountManager');
         }
-        $this->mapOptions($options);
 
-        $this->accounts = new Collection;
+        $this->setOptions($options);
+        $this->mapOptions();
     }
 
     /**
      * @param array $options
      */
-    protected function mapOptions(array $options = [])
+    protected function mapOptions()
     {
-        foreach ($options as $key => $value) {
+        foreach ($this->getOptions() as $key => $value) {
             if(property_exists($this, $key))
             {
                 $this->$key = $value;
             }
             
-            if(is_array($value))
+            if($key == 'emulator' && is_array($value))
             {
-                if(array_has($value, 'emulator.core.supported'))
+                if(array_has($value, 'core.supported'))
                 {
                     $this->mapSupportedAccountModels($value);
                 }
@@ -66,13 +69,42 @@ class AccountManager implements Contract
      */
     protected function mapSupportedAccountModels(array $options)
     {
-        foreach (array_get($options, 'emulator.core.supported') as $key => $value) {
-            if($key == 'model' && class_exists($value))
+        foreach (array_get($options, 'core.supported') as $core => $config) {
+            if(is_array($config) || $config instanceof \Traversable)
             {
-                $account = app($value);
-                $this->pushAccount($account);
+                foreach ($config as $key => $value) {
+                    if($key == 'model' && class_exists($value))
+                    {
+                        $this->mapSupportedAccountModel($value);
+                    }
+                }
+            } else {
+                // no configuration given. Try to resolve model, if it exists, use it.
+                $model = "App\\Models\\Emulator\\$core\\Account";
+                if(class_exists($model))
+                {
+                    $this->mapSupportedAccountModel($model);
+                } else {
+                    throw new \InvalidArgumentException(40, "config for [AccountManager.emulator.core.supported.$core] defined but model was not found.");
+                }
             }
         }
+    }
+
+    protected function mapSupportedAccountModel($model)
+    {
+        if(is_string($model))
+        {
+            $model = app($model);
+        }
+
+        if( ! $model instanceof AbstractAccount)
+        {
+            $class = get_class($model);
+            throw new \InvalidArgumentException(500, "expected instance of AbstractAccount, got $class.");
+        }
+
+        $this->pushAccount($model);
     }
 
     /**
@@ -98,6 +130,23 @@ class AccountManager implements Contract
     {
         // @TODO: some validation
        return $this->user;
+    }
+
+    /**
+     * @param array $options
+     * @return $this
+     */
+    public function setOptions(array $options = [])
+    {
+        $original = $this->options;
+        if( ! empty($original) )
+        {
+            $options = array_merge($options, $original);
+        }
+
+        $this->options = $options;
+
+        return $this;
     }
 
     /**
@@ -139,10 +188,10 @@ class AccountManager implements Contract
     public function fillAccounts()
     {
         $user = $this->getUser();
-        
+
         $this->accounts->each(function($account) use($user)
         {
-            $account->username  = $user->username;
+            $account->username  = $user->name;
             $account->email     = $user->email;
             // grab original password, before any mutation or altering.
             $account->password  = $user->getOriginal('password');

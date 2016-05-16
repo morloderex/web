@@ -3,12 +3,12 @@
 namespace App\Models\Emulators\TrinityCore;
 
 use App\Libraries\Hashing\TrinityCoreSha1Hasher;
+use App\Models\Emulators\AbstractAccount;
 use App\Models\User;
 use App\Scopes\Traits\scopeRandom;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-class Account extends Model
+class Account extends AbstractAccount
 {
     use scopeRandom;
     /**
