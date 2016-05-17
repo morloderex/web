@@ -21,6 +21,12 @@
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
+
+                                @if ($errors->has('UsernameIsAvailable'))
+                                    <span class="help-block">
+                                        <strong style="color: red;">Sorry, that username is already taken.</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 

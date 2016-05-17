@@ -13,7 +13,7 @@ return [
     */
 
     'controllers' => [
-        'namespace' => 'Riari\Forum\Frontend\Http\Controllers',
+        'namespace' => 'App\Http\Controllers\Forum',
         'category'  => 'CategoryController',
         'thread'    => 'ThreadController',
         'post'      => 'PostController'

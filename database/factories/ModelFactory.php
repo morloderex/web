@@ -1,12 +1,15 @@
 <?php
+use Faker\Generator as Faker;
 
-use App\Models\Category;
+use App\Models\Forum\Category,
+    App\Models\Forum\Post,
+    App\Models\Forum\Thread;
+
 use App\Models\Comment;
 use App\Models\Gallery;
 use App\Models\Information;
 use App\Models\Location;
 use App\Models\Photo;
-use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Taggable;
 use App\Models\Testimonial;
@@ -26,7 +29,7 @@ use Illuminate\Support\Facades\Hash;
 |
 */
 
-$factory->define(User::class, function (Faker\Generator $faker) {
+$factory->define(User::class, function (Faker $faker) {
     return [
     	'active'		 =>	$faker->boolean($chanceOfGettingTrue = 90),
         'name' 			 => $faker->firstName,
@@ -36,7 +39,7 @@ $factory->define(User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(Character::class, function(Faker\Generator $faker){
+$factory->define(Character::class, function(Faker $faker){
     return [
         'guid'          =>  $faker->numberBetween(1,2147483647),
         'account'       =>  \App\Models\Emulators\TrinityCore\Account::random()->id,
@@ -56,17 +59,27 @@ $factory->define(Character::class, function(Faker\Generator $faker){
     ];
 });
 
-$factory->define(Category::class, function (Faker\Generator $faker) {
+$factory->define(Category::class, function (Faker $faker) {
 	return [
-        'user_id'       =>  factory(User::class)->create()->id,
-		'visits'	    =>	$faker->numberBetween(5,20),
-		'name'		    =>	$faker->title,
-		'description'	=>	$faker->catchPhrase,
+		'visits'	        =>	$faker->numberBetween(5,20),
+		'title'		        =>	$faker->title,
+		'description'	    =>	$faker->catchPhrase,
+        'threads_enabled'   =>    $faker->boolean(90)
 	];
 });
 
 
-$factory->define(Post::class, function(Faker\Generator $faker){
+$factory->define(Thread::class, function(Faker $faker){
+    return [
+        'category_id'   =>  factory(Category::class)->create()->id,
+        'author_id'     =>  factory(User::class)->create()->id,
+        'title'         =>  $faker->title,
+        'pinned'        =>  $faker->numberBetween(0,1),
+        'locked'        =>  $faker->numberBetween(0,1),
+    ];
+});
+
+$factory->define(Post::class, function(Faker $faker){
 		$user = User::random();
 
         if(!$user instanceof User)
@@ -88,16 +101,13 @@ $factory->define(Post::class, function(Faker\Generator $faker){
         }
 
 		return [
-			'active'				=>	$faker->boolean,
-			'score'					=>	$faker->numberBetween(0,10),
-			'user_id'				=>	$user->id,
-      'title'     		=>  $faker->title,
-      'description'  	=>  $faker->catchPhrase,
-      'body'  				=>  $faker->text
+			'thread_id'             =>  factory(Thread::class)->create()->id,
+            'author_id'				=>	$user->id,
+            'content'  				=>  $faker->text
     ];
 });
 
-$factory->define(Comment::class, function(Faker\Generator $faker){
+$factory->define(Comment::class, function(Faker $faker){
     $user = factory(User::class)->create();
     return [
         'user_id'               =>  $user->id,
@@ -106,7 +116,7 @@ $factory->define(Comment::class, function(Faker\Generator $faker){
     ];
 });
 
-$factory->define(Location::class, function(Faker\Generator $faker){
+$factory->define(Location::class, function(Faker $faker){
     return [
 			'current_ip'  =>  $faker->ipv6,
 			'last_ip'     =>  $faker->ipv4,
@@ -115,7 +125,7 @@ $factory->define(Location::class, function(Faker\Generator $faker){
     ];
 });
 
-$factory->define(Photo::class, function(Faker\Generator $faker){
+$factory->define(Photo::class, function(Faker $faker){
     $acceptedExtensions = (new Photo())->getAcceptedExtensions();
     $image = $faker->imageUrl(1920, 1080, Null, True, Null, 'http://loremflickr.com');
     return [
@@ -124,7 +134,7 @@ $factory->define(Photo::class, function(Faker\Generator $faker){
     ];
 });
 
-$factory->define(Information::class, function(Faker\Generator $faker){
+$factory->define(Information::class, function(Faker $faker){
     return [
         'title'     =>  $faker->title,
         'synopsis'  =>  $faker->catchPhrase,
@@ -132,20 +142,20 @@ $factory->define(Information::class, function(Faker\Generator $faker){
     ];
 });
 
-$factory->define(Testimonial::class, function(Faker\Generator $faker){
+$factory->define(Testimonial::class, function(Faker $faker){
     return [
         'title'     =>  $faker->title,
         'content'   =>  $faker->text
     ];
 });
 
-$factory->define(Tag::class, function(Faker\Generator $faker){
+$factory->define(Tag::class, function(Faker $faker){
     return [
 				'tag'			=>	$faker->bs
     ];
 });
 
-$factory->define(Taggable::class, function(Faker\Generator $faker){
+$factory->define(Taggable::class, function(Faker $faker){
     $tag = factory(Tag::class)->create();
     return [
         'tag_id'	=>	$tag->id,
@@ -153,7 +163,7 @@ $factory->define(Taggable::class, function(Faker\Generator $faker){
     ];
 });
 
-$factory->define(Gallery::class, function(Faker\Generator $faker){
+$factory->define(Gallery::class, function(Faker $faker){
     return [
         'name'          =>  $faker->bs,
         'description'   =>  $faker->catchPhrase

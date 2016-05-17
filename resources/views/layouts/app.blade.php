@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    @include('partials.layout.head')
+    @extends('partials.layout.head')
     <body id="app-layout">
         @include('partials.layout.nav')
         <div class="container">

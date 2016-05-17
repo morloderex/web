@@ -3,6 +3,7 @@
 namespace App\Traits\Model;
 
 use App\Models\Activity;
+use Illuminate\Support\Facades\Auth;
 
 trait RecordsActivity
 {
@@ -37,11 +38,21 @@ trait RecordsActivity
 	{
 		$activity 				=	new Activity;
 		$activity->name 		=	$this->getActivityName($event);
-		$activity->user_id 		=	$this->short_name == 'User' ? $this->id : $this->user_id;
+		$activity->user_id 		=   $this->getUserId();	
 		$activity->subject_id 	=	$this->id;
 		$activity->subject_type =	get_class($this);
 
 		$activity->save();
+	}
+
+	protected function getUserId()
+	{
+		$id = $this->short_name == 'User' ? $this->id : $this->user_id;
+		if(!$id)
+		{
+			$id = Auth::id();
+		}
+		return $id;
 	}
 
 	protected function getActivityName($event)

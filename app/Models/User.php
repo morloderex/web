@@ -23,9 +23,7 @@ class User extends Authenticatable
         UserHasTeams,
         scopeRandom,
         Locatable,
-        hasPhotos,
-        managesAccounts;
-    
+        hasPhotos;
     /**
      * The attributes that are mass assignable.
      *
@@ -52,22 +50,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public function posts() : HasMany
-    {
-        return $this->hasMany(Post::class);
-    }
-
-    protected function setPasswordAttribute(string $password)
-    {
-        // store original
-        $this->original['password'] = $password;
-        // encrypt
-        $this->attributes['password'] = Hash::make($password);
-
-        return $this;
-    }
-
+    
     public function Accounts() : BelongsToMany
     {
         return $this->belongsToMany(Account::class, 'TrinityCore_web.accounts_user');

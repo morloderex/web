@@ -7,6 +7,7 @@ class DatabaseSeeder extends Seeder
 
     protected $seeders = [
         UserTableSeeder::class,
+        ForumSeeder::class,
         PostTableSeeder::class,
         GalleryTableSeeder::class
     ];

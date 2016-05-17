@@ -23,9 +23,6 @@
                     <a href="{{ url('/home') }}">Home</a>
                 </li>
                 <li>
-                    <a href="{{ route('post.index') }}">Posts</a>
-                </li>
-                <li>
                     <a href="{{ url('/faq') }}">Faq</a>
                 </li>
                 <li>
@@ -35,7 +32,7 @@
                     <a href="{{ route('gallery.index') }}">Gallery</a>
                 </li>
                 <li>
-                    <a href="{{ url('forum') }}">Forum</a>
+                    <a href="{{ route('forum.index') }}">Forum</a>
                 </li>
             </ul>
 

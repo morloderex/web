@@ -168,7 +168,6 @@ return [
        Laracasts\Flash\FlashServiceProvider::class,
        Riari\Forum\ForumServiceProvider::class,
        Riari\Forum\Frontend\ForumFrontendServiceProvider::class,
-       Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
        Torann\GeoIP\GeoIPServiceProvider::class,
        Torann\Moderate\ModerateServiceProvider::class,
        Torann\LocalizationHelpers\LocalizationHelpersServiceProvider::class,

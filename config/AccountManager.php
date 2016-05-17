@@ -13,6 +13,9 @@
             'attributes'    =>  [
                 'expansion' =>  3 // WotLK
             ],
+            'hashing'       =>  [
+                'default'   =>  \App\Libraries\Hashing\TrinityCoreSha1Hasher::class
+            ]
         ]
     ],
     

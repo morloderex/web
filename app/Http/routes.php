@@ -36,14 +36,7 @@ Route::group(['prefix' => 'armory', 'namespace' => 'Armory'], function () {
     Route::post('character/addItem', 'CharacterController@addItem');
 });
 
-Route::resource('post', PostController::class);
-Route::get('post/display/{post}', [
-    'uses'  =>  'PostController@display',
-    'as'    =>  'post.display'
-]);
-
 Route::resource('photo', PhotoController::class);
-Route::resource('category', CategoryController::class);
 Route::resource('gallery', GalleryController::class);
 
 Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function() {

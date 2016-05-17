@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\Auth\AccountManagerContract;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Laracasts\Flash\Flash;
 
 class UserController extends Controller
 {
+    protected  $accountManager;
+
+    public function __construct(AccountManagerContract $accountManager)
+    {
+        $this->middleware('auth');
+        $this->accountManager = $accountManager;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +26,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        // Count users
+
+        // information
+
+        // statistics
     }
 
     /**
@@ -26,7 +40,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->to('/register');
     }
 
     /**
@@ -37,7 +51,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->to('/register')->withInput($request);
     }
 
     /**
@@ -48,7 +62,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('user.show', compact('user'));
     }
 
     /**
@@ -59,7 +73,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $this->authorize('edit', $user);
+
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -71,7 +87,21 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $this->authorize('update', $user);
+        
+        $attributes = $request->except('_token');
+        $updated = $user->update($attributes);
+
+        if($updated)
+        {
+            $user->Accounts->each(function($account) use($attributes) {
+               $account->update($attributes); 
+            });
+        }
+
+        $this->flashMessage(compact('updated'));
+
+        return redirect()->route('user.show', $user);
     }
 
     /**
@@ -82,6 +112,32 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $this->authorize('destroy', $user);
+        
+        $user->Accounts->each(function($account){
+            $account->delete();
+        });
+        
+        $deleted = $user->delete();
+
+        $this->flashMessage(compact('deleted'));
+
+        return redirect()->url('user.index');
+    }
+
+    protected function flashMessage(array $action)
+    {
+        $what = array_first(
+            array_keys($action)
+        );
+        $succeeded = (bool)array_first(
+            array_values($action)
+        );
+        if($succeeded)
+        {
+            Flash::success("User and associated Accounts, $what.");
+        } else {
+            Flash::error("failed to $what.");
+        }
     }
 }

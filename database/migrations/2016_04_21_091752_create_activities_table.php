@@ -17,8 +17,8 @@ class CreateActivitiesTable extends Migration
             $table->string('name');
             $table->integer('subject_id');
             $table->string('subject_type');
-            $table->integer('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('user_id')->nullable();
+            //$table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

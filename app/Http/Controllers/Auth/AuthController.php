@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Contracts\Auth\AccountManagerContract;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Gate;
@@ -11,6 +12,8 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Laracasts\Flash\Flash;
 use Validator;
 
 class AuthController extends Controller
@@ -40,14 +43,17 @@ class AuthController extends Controller
      */
     protected $guard;
 
+    protected $accountManager;
+
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(AccountManagerContract $accountManager)
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout', 'getRegister', 'postRegister']);
+        $this->accountManager = $accountManager;
     }
 
     /**
@@ -82,7 +88,9 @@ class AuthController extends Controller
     protected function checkUserRegistration()
     {
         if (Gate::denies('create'))
+        {
             abort(403, 'User creation disabled.');
+        }
     }
 
     /**
@@ -107,11 +115,25 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        // if name contains a space, notify user about account name.
+        if(count(explode(' ', $data['name'])))
+        {
+            Flash::message('Your name contained atleast one space, please note that the game server does not support spaces for a username and as such, you should enter your username without.');
+        }
+
+        $data['UsernameIsAvailable'] = (int)$this->accountManager->validateUsername($data['name']);
+        $messages = [
+          'UsernameIsAvailable' =>  'Sorry, that username is already taken.'
+        ];
+
+        $validator = Validator::make($data, [
             'name' => 'required|max:255',
+            'UsernameIsAvailable' => 'required|integer|min:1',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-        ]);
+        ], $messages);
+
+        return $validator;
     }
 
     /**
@@ -122,13 +144,22 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             // Users created are by default not active
             // eg. require email confirmation or Administrative intervention.
             'active'    => config('auth.user--active'),
             'name'      => $data['name'],
             'email'     => $data['email'],
-            'password'  => $data['password'],
+            'password'  => Hash::make($data['password']),
         ]);
+
+        $this->accountManager
+                ->setUser($user)
+                ->setPassword($data['password'])
+                ->mapAccountsRelatedByEmail()
+                ->fillAccounts()
+                ->saveAccounts();
+        
+        return $user;
     }
 }

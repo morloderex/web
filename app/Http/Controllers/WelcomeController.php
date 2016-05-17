@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Forum\Thread;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Models\Category,
-    App\Models\Post,
+use App\Models\Forum\Category,
+    App\Models\Forum\Post,
     App\Models\User;
 
 class WelcomeController extends Controller
 {
     public function getIndex() {
 
-    	$changelogs = Category::latestChangelog();
+    	$changelogs = Thread::latestChangelog();
 
     	return view('welcome', compact('changelogs'));
     }

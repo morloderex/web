@@ -93,6 +93,11 @@ class Account extends AbstractAccount
 
     }
 
+    public function User()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
     /**
      * One-to-One relationship with Role
      *
@@ -152,20 +157,8 @@ class Account extends AbstractAccount
      */
     public function setPasswordAttribute(string $password)
     {
-        $this->attributes['sha_pass_hash'] = $this->getEncryptedPassword($password);
+        $this->attributes['sha_pass_hash'] = $password;
         $this->attributes['password'] = $password;
-    }
-    
-    /**
-     * Encrypts the given password
-     * @param  string $password
-     * @return string
-     */
-    protected function getEncryptedPassword(string $password) : string
-    {
-        $username = $this->getAttribute('username');
-        $hasher = new TrinityCoreSha1Hasher();
-        return $hasher->make(compact('username', 'password'));
     }
 
     /**
@@ -177,7 +170,7 @@ class Account extends AbstractAccount
      */
     public function setUsernameAttribute(string $username)
     {
-        $this->attributes['username'] = strtoupper(trim($username));
+        $this->attributes['username'] = strtoupper(str_replace(' ', '', $username));
     }
 
     /**
